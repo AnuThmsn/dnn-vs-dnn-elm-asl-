@@ -1,0 +1,51 @@
+{
+  "checkpoints": {
+    "ATTnet_G_baselineA.pth": {
+      "size_kb": 54.267578125,
+      "sha256": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016"
+    },
+    "CBFnet_G_baselineA.pth": {
+      "size_kb": 265.658203125,
+      "sha256": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b"
+    },
+    "normalization_stats.npz": {
+      "size_kb": 1.5234375,
+      "sha256": "d2637da7af19559a75862190692017e2a720cfe6b4cebeec2e29b8ceaac8f728"
+    }
+  },
+  "normalization": {
+    "X_mean": [
+      656.0311279296875,
+      560.586181640625,
+      435.9669494628906,
+      308.3701477050781
+    ],
+    "X_std": [
+      480.2940673828125,
+      344.71331787109375,
+      253.01885986328125,
+      179.04380798339844
+    ],
+    "CBF_mean": 50.00099182128906,
+    "CBF_std": 28.86714474079295,
+    "ATT_mean": 1.7515541315078735,
+    "ATT_std": 0.7220693866233789,
+    "fitted_on": "training split only (N=1,000,000)"
+  },
+  "simulator_constants": {
+    "PLDs": [
+      1.525,
+      2.025,
+      2.525,
+      3.025
+    ],
+    "TAU": 1.8,
+    "T1T": 1.2,
+    "T1A": 1.66,
+    "ALPHA": 0.85,
+    "BETA": 0.75,
+    "LAMBDA": 0.9,
+    "SCALE": 100000.0,
+    "SIG_REF_SC": 334.2038963941252
+  }
+}

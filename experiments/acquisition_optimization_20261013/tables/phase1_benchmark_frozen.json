@@ -1,0 +1,102 @@
+{
+  "campaign": "Acquisition Optimization 20261013",
+  "reference_baseline": "Baseline A (DNN-G) and Ensemble Feature ELM",
+  "file_hashes": {
+    "ATTnet_G_baselineA.pth": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\ATTnet_G_baselineA.pth",
+      "sha256": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016",
+      "size_bytes": 55570
+    },
+    "CBFnet_G_baselineA.pth": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\CBFnet_G_baselineA.pth",
+      "sha256": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b",
+      "size_bytes": 272034
+    },
+    "normalization_stats.npz": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\normalization_stats.npz",
+      "sha256": "d2637da7af19559a75862190692017e2a720cfe6b4cebeec2e29b8ceaac8f728",
+      "size_bytes": 1560
+    },
+    "all_test_predictions.npz": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\elm_models\\all_test_predictions.npz",
+      "sha256": "3150b8f0f494d64ed510f345eaaaeb0b12948e3a41f25c23549350a5893904f1",
+      "size_bytes": 7203934
+    }
+  },
+  "baseline_protocol": {
+    "plds_seconds": [
+      1.525,
+      2.025,
+      2.525,
+      3.025
+    ],
+    "tau_seconds": 1.8,
+    "T1t_seconds": 1.2,
+    "T1a_seconds": 1.66,
+    "alpha": 0.85,
+    "beta": 0.75,
+    "lambda_ml_g": 0.9,
+    "scale": 100000.0,
+    "sig_ref_sc": 334.2038963941252,
+    "cbf_min": 0.0,
+    "cbf_max": 100.0,
+    "att_min": 0.5,
+    "att_max": 3.0,
+    "snr_values": [
+      5.0,
+      8.0,
+      10.0,
+      12.0,
+      15.0,
+      20.0,
+      30.0,
+      50.0,
+      100.0,
+      200.0,
+      500.0,
+      "inf"
+    ]
+  },
+  "baseline_A_test_metrics": {
+    "Candidate_Model": "Baseline A (DNN-G)",
+    "CBF_RMSE": 3.72657998146158,
+    "Delta_CBF_RMSE": 0.0,
+    "Gain_CBF_RMSE_%": 0.0,
+    "CBF_MAE": 2.5323342586148274,
+    "Delta_CBF_MAE": 0.0,
+    "Gain_CBF_MAE_%": 0.0,
+    "CBF_Bias": -0.1731346902597579,
+    "CBF_CCC": 0.9915657329571436,
+    "CBF_R2": 0.9833225061707508,
+    "ATT_RMSE": 0.3058001732039089,
+    "Delta_ATT_RMSE": 0.0,
+    "Gain_ATT_RMSE_%": 0.0,
+    "ATT_MAE": 0.193524807882905,
+    "Delta_ATT_MAE": 0.0,
+    "Gain_ATT_MAE_%": 0.0,
+    "ATT_Bias": -0.0065952168232202,
+    "ATT_CCC": 0.9009213766671732,
+    "ATT_R2": 0.8195491601745373
+  },
+  "ensemble_feature_elm_test_metrics": {
+    "Candidate_Model": "Ensemble Feature ELM (Baseline Latents)",
+    "CBF_RMSE": 3.6827886715030695,
+    "Delta_CBF_RMSE": 0.0437913099585101,
+    "Gain_CBF_RMSE_%": 1.1751072075832645,
+    "CBF_MAE": 2.423241374331948,
+    "Delta_CBF_MAE": 0.1090928842828793,
+    "Gain_CBF_MAE_%": 4.3079970154711145,
+    "CBF_Bias": -0.0084939228460821,
+    "CBF_CCC": 0.9917908172892126,
+    "CBF_R2": 0.9837121600781342,
+    "ATT_RMSE": 0.3048746624086489,
+    "Delta_ATT_RMSE": 0.0009255107952599,
+    "Gain_ATT_RMSE_%": 0.302652148807907,
+    "ATT_MAE": 0.190389768499732,
+    "Delta_ATT_MAE": 0.0031350393831729,
+    "Gain_ATT_MAE_%": 1.6199677020580745,
+    "ATT_Bias": -0.0008081947487592,
+    "ATT_CCC": 0.9016081648465594,
+    "ATT_R2": 0.8206397839636501
+  }
+}
