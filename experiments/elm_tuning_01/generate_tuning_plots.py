@@ -177,6 +177,59 @@ def plot_seed_variability(df_seeds):
     plt.close()
     print(f"Saved: {out_file}")
 
+def plot_test_snr_breakdown():
+    snr_csv = os.path.join(OUT_DIR, "snr_stratified_test_metrics.csv")
+    if not os.path.exists(snr_csv):
+        return
+    df_snr = pd.read_csv(snr_csv)
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5.5), dpi=300)
+
+    model_colors = {
+        "Baseline A (DNN-G)": "#1f77b4",
+        "Historical Feature ELM (5 seeds)": "#ff7f0e",
+        "Tuned ELM Single Best": "#2ca02c",
+        "Tuned ELM Ensemble (5 seeds)": "#d62728",
+        "Tuned ELM Ensemble (10 seeds)": "#9467bd"
+    }
+
+    # Plot CBF RMSE vs SNR
+    ax_cbf = axes[0]
+    models = df_snr["Model"].unique()
+    for m in models:
+        sub = df_snr[df_snr["Model"] == m]
+        x_vals = range(len(sub))
+        ax_cbf.plot(x_vals, sub["CBF_RMSE"], marker='o', linewidth=2, markersize=5,
+                    label=m, color=model_colors.get(m, 'gray'))
+    sub0 = df_snr[df_snr["Model"] == models[0]]
+    ax_cbf.set_xticks(range(len(sub0)))
+    ax_cbf.set_xticklabels(sub0["SNR"], rotation=30)
+    ax_cbf.set_xlabel("SNR Level", fontsize=11, fontweight='bold')
+    ax_cbf.set_ylabel("CBF RMSE (mL/100g/min)", fontsize=11, fontweight='bold')
+    ax_cbf.set_title("Locked Test CBF RMSE across SNR Levels", fontsize=12, fontweight='bold')
+    ax_cbf.legend(fontsize=8, frameon=True)
+    ax_cbf.grid(True, linestyle="--", alpha=0.6)
+
+    # Plot ATT RMSE vs SNR
+    ax_att = axes[1]
+    for m in models:
+        sub = df_snr[df_snr["Model"] == m]
+        x_vals = range(len(sub))
+        ax_att.plot(x_vals, sub["ATT_RMSE"], marker='s', linewidth=2, markersize=5,
+                    label=m, color=model_colors.get(m, 'gray'))
+    ax_att.set_xticks(range(len(sub0)))
+    ax_att.set_xticklabels(sub0["SNR"], rotation=30)
+    ax_att.set_xlabel("SNR Level", fontsize=11, fontweight='bold')
+    ax_att.set_ylabel("ATT RMSE (s)", fontsize=11, fontweight='bold')
+    ax_att.set_title("Locked Test ATT RMSE across SNR Levels", fontsize=12, fontweight='bold')
+    ax_att.legend(fontsize=8, frameon=True)
+    ax_att.grid(True, linestyle="--", alpha=0.6)
+
+    plt.tight_layout()
+    out_file = os.path.join(PLOTS_DIR, "test_evaluation_summary.png")
+    plt.savefig(out_file, dpi=300)
+    plt.close()
+    print(f"Saved: {out_file}")
+
 def main():
     sweep_csv = os.path.join(OUT_DIR, "validation_sweep.csv")
     seeds_csv = os.path.join(OUT_DIR, "seed_variability.csv")
@@ -192,6 +245,7 @@ def main():
     plot_rmse_vs_alpha(df_sweep)
     plot_hidden_neurons_vs_metrics(df_sweep)
     plot_seed_variability(df_seeds)
+    plot_test_snr_breakdown()
     print("All diagnostic plots generated successfully.")
 
 if __name__ == "__main__":
