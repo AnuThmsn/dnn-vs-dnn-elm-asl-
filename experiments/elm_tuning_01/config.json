@@ -1,0 +1,120 @@
+{
+  "experiment_name": "elm_tuning_01",
+  "description": "Leakage-free ELM hyperparameter optimization over hidden units, activations, and ridge regularization",
+  "acquisition_protocol": {
+    "plds": [
+      1.525,
+      2.025,
+      2.525,
+      3.025
+    ],
+    "tau": 1.8,
+    "T1t": 1.2,
+    "T1a": 1.66,
+    "alpha": 0.85,
+    "beta": 0.75,
+    "lambda": 0.9
+  },
+  "frozen_dnn_backbones": {
+    "cbf_backbone": {
+      "checkpoint": "experiments/baseline_A/CBFnet_G_baselineA.pth",
+      "sha256": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b",
+      "architecture": "StandardizedNet(4 inputs, 5 hidden layers x 128 neurons, ELU)",
+      "penultimate_feature_dim": 128
+    },
+    "att_backbone": {
+      "checkpoint": "experiments/baseline_A/ATTnet_G_baselineA.pth",
+      "sha256": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016",
+      "architecture": "StandardizedNet(4 inputs, 4 hidden layers x 64 neurons, ELU)",
+      "penultimate_feature_dim": 64
+    }
+  },
+  "current_elm_baseline": {
+    "type": "Ensemble Feature ELM (5 seeds)",
+    "hidden_neurons": 512,
+    "activation": "tanh",
+    "ridge_alpha": 0.01,
+    "ensemble_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "training_samples": 1000000,
+    "clipping": {
+      "cbf": [
+        0.0,
+        100.0
+      ],
+      "att": [
+        0.5,
+        3.0
+      ]
+    }
+  },
+  "search_space": {
+    "hidden_neurons": [
+      128,
+      256,
+      512,
+      1024,
+      2048
+    ],
+    "activations": [
+      "tanh",
+      "elu",
+      "relu"
+    ],
+    "ridge_regularization_alpha": [
+      1e-05,
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "validation_split": "experiments/cache/X_val.npy (N=100,000)",
+    "training_split": "experiments/cache/X_train.npy (N=1,000,000)"
+  },
+  "baseline_metrics": {
+    "baseline_A_dnn": {
+      "cbf": {
+        "RMSE": 3.7265799814615796,
+        "MSE": 13.887398358230186,
+        "MAE": 2.5323342586148274,
+        "Bias": -0.17313469025975792,
+        "R2": 0.9833225061707509,
+        "CCC": 0.9915657329571436
+      },
+      "att": {
+        "RMSE": 0.3058001732039089,
+        "MSE": 0.09351374593154067,
+        "MAE": 0.19352480788290502,
+        "Bias": -0.006595216823220253,
+        "R2": 0.8195491601745373,
+        "CCC": 0.9009213766671731
+      }
+    },
+    "ensemble_feature_elm_baseline": {
+      "cbf": {
+        "RMSE": 3.6827886715030695,
+        "MSE": 13.562932398951343,
+        "MAE": 2.423241374331948,
+        "Bias": -0.008493922846082132,
+        "R2": 0.9837121600781342,
+        "CCC": 0.9917908172892126
+      },
+      "att": {
+        "RMSE": 0.30487466240864897,
+        "MSE": 0.09294855977878769,
+        "MAE": 0.19038976849973202,
+        "Bias": -0.0008081947487592697,
+        "R2": 0.8206397839636501,
+        "CCC": 0.9016081648465594
+      }
+    }
+  }
+}
