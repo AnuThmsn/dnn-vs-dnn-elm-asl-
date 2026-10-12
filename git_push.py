@@ -30,3 +30,4 @@ run_cmd(["git", "commit", "-m", commit_msg])
 print("\nAttempting git push to origin main...")
 ret = run_cmd(["git", "push", "-u", "origin", "main"])
 sys.exit(ret)
+

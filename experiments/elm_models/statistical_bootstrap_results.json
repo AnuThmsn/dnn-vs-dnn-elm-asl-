@@ -1,0 +1,122 @@
+[
+  {
+    "Model": "Standalone ELM",
+    "Target": "CBF",
+    "RMSE": 3.7477986812591553,
+    "Delta_RMSE": -0.02121877670288086,
+    "95%_CI_Delta_RMSE": "[-0.0276, -0.0150]",
+    "Delta_MAE": -0.013329267501831055,
+    "95%_CI_Delta_MAE": "[-0.0179, -0.0091]",
+    "%_RMSE_Gain": "-0.57% [-0.74%, -0.40%]",
+    "p_value": "1.41e-09",
+    "Significant": "YES (p<0.001)"
+  },
+  {
+    "Model": "Standalone ELM",
+    "Target": "ATT",
+    "RMSE": 0.316154420375824,
+    "Delta_RMSE": -0.01035425066947937,
+    "95%_CI_Delta_RMSE": "[-0.01108, -0.00970]",
+    "Delta_MAE": -0.01258908212184906,
+    "95%_CI_Delta_MAE": "[-0.01309, -0.01212]",
+    "%_RMSE_Gain": "-3.39% [-3.64%, -3.16%]",
+    "p_value": "< 1e-15",
+    "Significant": "YES (p<0.001)"
+  },
+  {
+    "Model": "Weighted Ensemble",
+    "Target": "CBF",
+    "RMSE": 3.7147283412210936,
+    "Delta_RMSE": 0.011851563335180781,
+    "95%_CI_Delta_RMSE": "[0.0097, 0.0140]",
+    "Delta_MAE": 0.01469753642356686,
+    "95%_CI_Delta_MAE": "[0.0130, 0.0163]",
+    "%_RMSE_Gain": "0.32% [0.26%, 0.37%]",
+    "p_value": "< 1e-15",
+    "Significant": "YES (p<0.001)"
+  },
+  {
+    "Model": "Weighted Ensemble",
+    "Target": "ATT",
+    "RMSE": 0.3058048545253751,
+    "Delta_RMSE": -4.6848190304871196e-06,
+    "95%_CI_Delta_RMSE": "[-0.00004, 0.00003]",
+    "Delta_MAE": -0.0002923571173846784,
+    "95%_CI_Delta_MAE": "[-0.00032, -0.00027]",
+    "%_RMSE_Gain": "-0.00% [-0.01%, 0.01%]",
+    "p_value": "7.89e-01",
+    "Significant": "NO"
+  },
+  {
+    "Model": "Residual ELM",
+    "Target": "CBF",
+    "RMSE": 3.683595651925668,
+    "Delta_RMSE": 0.042984252630606345,
+    "95%_CI_Delta_RMSE": "[0.0392, 0.0468]",
+    "Delta_MAE": 0.09280238470644475,
+    "95%_CI_Delta_MAE": "[0.0898, 0.0959]",
+    "%_RMSE_Gain": "1.15% [1.05%, 1.26%]",
+    "p_value": "< 1e-15",
+    "Significant": "YES (p<0.001)"
+  },
+  {
+    "Model": "Residual ELM",
+    "Target": "ATT",
+    "RMSE": 0.3053971728149136,
+    "Delta_RMSE": 0.0004029968914310289,
+    "95%_CI_Delta_RMSE": "[0.00029, 0.00052]",
+    "Delta_MAE": 0.0022780025130228754,
+    "95%_CI_Delta_MAE": "[0.00220, 0.00236]",
+    "%_RMSE_Gain": "0.13% [0.10%, 0.17%]",
+    "p_value": "4.55e-13",
+    "Significant": "YES (p<0.001)"
+  },
+  {
+    "Model": "DNN-Feature ELM",
+    "Target": "CBF",
+    "RMSE": 3.6850500106811523,
+    "Delta_RMSE": 0.04152989387512207,
+    "95%_CI_Delta_RMSE": "[0.0370, 0.0461]",
+    "Delta_MAE": 0.10757136344909668,
+    "95%_CI_Delta_MAE": "[0.1043, 0.1109]",
+    "%_RMSE_Gain": "1.11% [1.00%, 1.24%]",
+    "p_value": "< 1e-15",
+    "Significant": "YES (p<0.001)"
+  },
+  {
+    "Model": "DNN-Feature ELM",
+    "Target": "ATT",
+    "RMSE": 0.3049965798854828,
+    "Delta_RMSE": 0.0008035898208618164,
+    "95%_CI_Delta_RMSE": "[0.00054, 0.00106]",
+    "Delta_MAE": 0.0029116421937942505,
+    "95%_CI_Delta_MAE": "[0.00276, 0.00308]",
+    "%_RMSE_Gain": "0.26% [0.18%, 0.35%]",
+    "p_value": "4.29e-10",
+    "Significant": "YES (p<0.001)"
+  },
+  {
+    "Model": "Ensemble Feature ELM (5 seeds)",
+    "Target": "CBF",
+    "RMSE": 3.682788848876953,
+    "Delta_RMSE": 0.04379105567932129,
+    "95%_CI_Delta_RMSE": "[0.0396, 0.0484]",
+    "Delta_MAE": 0.10909247398376465,
+    "95%_CI_Delta_MAE": "[0.1058, 0.1124]",
+    "%_RMSE_Gain": "1.18% [1.06%, 1.30%]",
+    "p_value": "< 1e-15",
+    "Significant": "YES (p<0.001)"
+  },
+  {
+    "Model": "Ensemble Feature ELM (5 seeds)",
+    "Target": "ATT",
+    "RMSE": 0.3048746585845947,
+    "Delta_RMSE": 0.0009255111217498779,
+    "95%_CI_Delta_RMSE": "[0.00069, 0.00117]",
+    "Delta_MAE": 0.0031350404024124146,
+    "95%_CI_Delta_MAE": "[0.00299, 0.00329]",
+    "%_RMSE_Gain": "0.30% [0.22%, 0.38%]",
+    "p_value": "2.45e-14",
+    "Significant": "YES (p<0.001)"
+  }
+]

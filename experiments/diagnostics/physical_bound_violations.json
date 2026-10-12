@@ -1,0 +1,15 @@
+{
+  "N_test": 100000,
+  "CBF_min_raw": -0.08476638793945312,
+  "CBF_max_raw": 100.7870101928711,
+  "CBF_below_0": 7,
+  "CBF_below_0_pct": 0.006999999999999999,
+  "CBF_above_100": 6,
+  "CBF_above_100_pct": 0.006,
+  "ATT_min_raw": 0.9313649535179138,
+  "ATT_max_raw": 3.078289031982422,
+  "ATT_below_0.5": 0,
+  "ATT_below_0.5_pct": 0.0,
+  "ATT_above_3.0": 72,
+  "ATT_above_3.0_pct": 0.07200000000000001
+}
