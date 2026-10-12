@@ -1,0 +1,70 @@
+{
+  "experiments\\baseline_A\\ATTnet_G_baselineA.pth": {
+    "size_kb": 54.267578125,
+    "sha256": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016"
+  },
+  "experiments\\baseline_A\\CBFnet_G_baselineA.pth": {
+    "size_kb": 265.658203125,
+    "sha256": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b"
+  },
+  "experiments\\baseline_A\\training_history.json": {
+    "size_kb": 10.2861328125,
+    "sha256": "f648f7b17e2e4821815b1c7f72ab5ee016efd56f2e49d996e7bc38918eade5d1"
+  },
+  "experiments\\baseline_A\\normalization_stats.npz": {
+    "size_kb": 1.5234375,
+    "sha256": "d2637da7af19559a75862190692017e2a720cfe6b4cebeec2e29b8ceaac8f728"
+  },
+  "experiments\\baseline_A\\test_summary_baselineA.csv": {
+    "size_kb": 0.271484375,
+    "sha256": "93f4ec16c67d37157a272381c833ac6756931d67e71050d5643c475dfaa01c7f"
+  },
+  "experiments\\baseline_A\\clean_grid_baselineA.csv": {
+    "size_kb": 0.267578125,
+    "sha256": "11b5b910b9fef097a81726bef95a180b65002b3668b6733d71f8e62d4538ab06"
+  },
+  "experiments\\baseline_A\\snr_evaluation_baselineA.csv": {
+    "size_kb": 1.45703125,
+    "sha256": "69d73c6c3fd7d9c1e839138c7a781326f2f8512c5d2b3f0e00a43bbefee2678c"
+  },
+  "experiments\\baseline_A\\baselineA_test_predictions.npz": {
+    "size_kb": 800.970703125,
+    "sha256": "3194250da46e90ecad962ea5b54f0cdef3fc0dc72f6950bfa01c978d1f962908"
+  },
+  "experiments\\elm_models\\all_test_predictions.npz": {
+    "size_kb": 7035.091796875,
+    "sha256": "3150b8f0f494d64ed510f345eaaaeb0b12948e3a41f25c23549350a5893904f1"
+  },
+  "experiments\\elm_models\\all_models_test_comparison.csv": {
+    "size_kb": 1.421875,
+    "sha256": "98c4710147ad9e87528f475b564e6b40ca61202ce911db5b514f2c9870980b8c"
+  },
+  "experiments\\elm_models\\all_models_clean_comparison.csv": {
+    "size_kb": 1.294921875,
+    "sha256": "54e613718d80f2ad4b8d0e082b55a8add791973ae99c4bec1875ed7ed3386d92"
+  },
+  "experiments\\elm_models\\all_models_snr_comparison.csv": {
+    "size_kb": 1.9560546875,
+    "sha256": "27b725f0e6bf753a7d84622f343984694aa4d131a234a4c9a036c523c382e4ce"
+  },
+  "experiments\\elm_models\\statistical_bootstrap_results.csv": {
+    "size_kb": 1.7763671875,
+    "sha256": "e2ddd863c5eef9597ce00955a40afad686487396a71ab103e7f1679ad16d0f1f"
+  },
+  "experiments\\cache\\X_test.npy": {
+    "size_kb": 1562.625,
+    "sha256": "ec0e6bcb76b5ab178e44b72db3553847214bc12da9f32e701c60ae1cd0309528"
+  },
+  "experiments\\cache\\Y_test.npy": {
+    "size_kb": 781.375,
+    "sha256": "dcdc5cfba85f71f29b10594a36a0babd1ca39f40b707a4d7fa23641204fbaeab"
+  },
+  "experiments\\cache\\snr_test.npy": {
+    "size_kb": 781.375,
+    "sha256": "4ef93cbf7cd690182906a049ff2f72293545d270fc6d51a59436216d615851e6"
+  },
+  "experiments\\cache\\clean_grid.npz": {
+    "size_kb": 169.41796875,
+    "sha256": "3c4be7886239248bc061de669c538e18f9eaa8c10711526332e67429e4451e03"
+  }
+}
