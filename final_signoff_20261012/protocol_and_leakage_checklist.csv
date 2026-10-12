@@ -1,0 +1,11 @@
+Audit_Item,Expected_Specification,Observed_Implementation,Audit_Status,Comments
+Clean Physiological Grid Size,"N = 2,392 points (46 CBF x 52 ATT)","experiments/cache/clean_grid.npz has length 2,392",VERIFIED,"Inherited from Experiment G/H. Accidental label 10,791 in Audit 1 is resolved and superseded."
+Noisy Held-Out Test Set Size,"N = 100,000 samples across 12 SNR levels","experiments/cache/Y_test.npy has shape (100000, 2)",VERIFIED,"Exact match with prediction array keys. Zero NaN, Inf, or truncated values."
+Test SNR=inf Slice Identity,"N = 8,301 samples, subset of test set","np.isinf(snr_test).sum() == 8,301",VERIFIED,"Distinct protocol from 2,392 clean grid. Uniform continuous distribution, not a grid."
+Model Selection Leakage: ELM Hidden Units & Alpha,"Tuned strictly on validation set (X_val, Y_val)",run_elm_comparisons.py lines 151-184 evaluate only on X_val_n,VERIFIED,Zero test set leakage.
+Model Selection Leakage: Ensemble Mixing Alpha,Tuned strictly on validation set,run_elm_comparisons.py lines 224-241 evaluate only on cbf_dnn_val/cbf_elm_val,VERIFIED,Zero test set leakage.
+Model Selection Leakage: Residual Shrinkage Gamma,Tuned strictly on validation set residuals,run_elm_comparisons.py lines 280-301 evaluate only on X_res_val,VERIFIED,Zero test set leakage.
+Multi-Seed Membership Selection,"Pre-specified fixed seeds [42, 43, 44, 45, 46]","run_elm_comparisons.py lines 356, 398 use loop [42, 43, 44, 45, 46]",VERIFIED,No post-hoc seed cherry-picking on test data.
+Physical Bound Clipping,"CBF in [10, 120] mL/(100g min), ATT in [0.5, 3.0] s",np.clip applied symmetrically to physical units,VERIFIED,Derived strictly from simulator physiological definition in physics.py.
+Early-Arrival ATT Degradation,"[0.5, 1.0) s window: Candidate does NOT improve baseline",Baseline RMSE=0.4664 s vs Candidate RMSE=0.4693 s (-0.62% worse),VERIFIED,Physical bolus clearance prior to PLD1=1.525 s causes unresolvable CBF/ATT degeneracy.
+Real Patient MRI Clinical Translation,Synthetic validation does NOT prove clinical utility,Simulation assumes idealized Buxton kinetic curves and i.i.d. Rician noise,QUALIFIED,Requires in vivo MRI patient validation with arterial transit artifacts and dispersion.
