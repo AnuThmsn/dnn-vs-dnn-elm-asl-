@@ -1,0 +1,90 @@
+{
+  "experiment_id": "reference_calibration_03",
+  "title": "Experiment 3: Reference Values, Numerical Scaling, Calibration, and ELM Correction Under Fixed PLDs",
+  "branch": "main",
+  "base_commit": "cadbbe7",
+  "date": "2026-10-13",
+  "acquisition": {
+    "plds": [1.525, 2.025, 2.525, 3.025],
+    "tau": 1.8,
+    "fixed_protocol": true
+  },
+  "physical_reference_values": {
+    "T1a": {
+      "value": 1.66,
+      "unit": "s",
+      "description": "Blood longitudinal relaxation time at 3.0 Tesla",
+      "source": "Lu et al. 2004; Alsop et al. 2015 consensus (recommends 1.65 s)"
+    },
+    "T1t": {
+      "value": 1.2,
+      "unit": "s",
+      "description": "Gray matter tissue longitudinal relaxation time at 3.0 Tesla",
+      "source": "Buxton et al. 1998; Wansapura et al. 1999"
+    },
+    "alpha": {
+      "value": 0.85,
+      "unit": "dimensionless",
+      "description": "pCASL inversion efficiency",
+      "source": "Alsop et al. 2015 consensus recommendation"
+    },
+    "beta": {
+      "value": 0.75,
+      "unit": "dimensionless",
+      "description": "Arterial-to-capillary transit attenuation factor",
+      "source": "Ishida et al. 2024 / notebook historical parameter"
+    },
+    "lambda": {
+      "value": 0.9,
+      "unit": "mL/g",
+      "description": "Brain blood-tissue water partition coefficient",
+      "source": "Herscovitch & Raichle 1985; Alsop et al. 2015 consensus"
+    },
+    "scale": {
+      "value": 100000.0,
+      "unit": "arbitrary units",
+      "description": "Global arbitrary signal multiplier",
+      "source": "Notebook benchmark scaling factor"
+    },
+    "reference_signal": {
+      "ref_cbf": 50.0,
+      "ref_att": 1.6,
+      "ref_pld": 2.0,
+      "ref_ld": 1.8,
+      "sig_ref_sc": 334.2039,
+      "description": "Physiological reference point for SNR scaling"
+    }
+  },
+  "target_ranges": {
+    "cbf": {
+      "min": 0.0,
+      "max": 100.0,
+      "unit": "mL/(100g*min)",
+      "distribution": "Uniform(0, 100)"
+    },
+    "att": {
+      "min": 0.5,
+      "max": 3.0,
+      "unit": "s",
+      "distribution": "Uniform(0.5, 3.0)"
+    }
+  },
+  "normalization_stats": {
+    "X_mean": [656.0311, 560.5862, 435.96695, 308.37015],
+    "X_std": [480.29407, 344.71332, 253.01886, 179.04381],
+    "cbf_mean": 50.00099,
+    "cbf_std": 28.86714,
+    "att_mean": 1.75155,
+    "att_std": 0.72207
+  },
+  "noise_protocol": {
+    "type": "dual_channel_rician",
+    "sd_max": 66.84078,
+    "n_levels_train": 100,
+    "snr_evaluation_checkpoints": [5.0, 8.0, 10.0, 12.0, 15.0, 20.0, 30.0, 50.0, 100.0, 200.0, 500.0, null]
+  },
+  "baseline_checkpoints": {
+    "cbf_net": "experiments/baseline_A/CBFnet_G_baselineA.pth",
+    "att_net": "experiments/baseline_A/ATTnet_G_baselineA.pth"
+  }
+}
