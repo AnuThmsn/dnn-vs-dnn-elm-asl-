@@ -1,0 +1,37 @@
+{
+  "affine_cbf_dnn": {
+    "slope": 1.0026166244018768,
+    "intercept": 0.05203958233103693
+  },
+  "affine_cbf_elm": {
+    "slope": 0.9998639063797857,
+    "intercept": 0.0035781968089351863
+  },
+  "affine_att_dnn": {
+    "slope": 0.9994716153221704,
+    "intercept": 0.010035317952103946
+  },
+  "affine_att_elm": {
+    "slope": 0.9970366598163767,
+    "intercept": 0.009940469395505903
+  },
+  "optimal_shrinkage_gamma": {
+    "CBF": 0.86,
+    "ATT": 0.61
+  },
+  "poly2_cbf_elm": [
+    4.97540485759153e-05,
+    0.994907009355006,
+    0.08662056539292252
+  ],
+  "poly2_att_elm": [
+    -0.0029683878852584168,
+    1.0079311326413352,
+    0.0012454642413629931
+  ],
+  "early_att_residual_correction": {
+    "early_bias": 0.36251121759414673,
+    "transition_point": 1.0,
+    "transition_width": 0.2
+  }
+}
