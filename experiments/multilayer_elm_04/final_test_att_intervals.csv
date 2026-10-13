@@ -1,0 +1,26 @@
+Interval,N_Samples,Model,ATT_RMSE,ATT_MAE,ATT_Bias,ATT_CCC
+"[0.5, 1.0) s (Early)",19728,Baseline A (DNN-G),0.4664,0.3691,0.3691,0.0047
+"[0.5, 1.0) s (Early)",19728,"Historical Feature ELM (Rep A, 512, a=0.01)",0.4694,0.3717,0.3717,0.0049
+"[0.5, 1.0) s (Early)",19728,"Penultimate Candidate (Rep A, 512, Tuned)",0.4695,0.3718,0.3717,0.0049
+"[0.5, 1.0) s (Early)",19728,"Multi-Layer Candidate (Rep C, 512, Tuned)",0.4696,0.3719,0.3718,0.0051
+"[0.5, 1.0) s (Early)",19728,"Compact Linear Ridge (Rep A, Direct Ridge)",0.4705,0.3723,0.3722,0.0049
+"[1.0, 1.5) s (Normal GM)",20281,Baseline A (DNN-G),0.2948,0.2281,-0.1188,0.0306
+"[1.0, 1.5) s (Normal GM)",20281,"Historical Feature ELM (Rep A, 512, a=0.01)",0.2947,0.2272,-0.1147,0.0323
+"[1.0, 1.5) s (Normal GM)",20281,"Penultimate Candidate (Rep A, 512, Tuned)",0.2947,0.2271,-0.1147,0.0322
+"[1.0, 1.5) s (Normal GM)",20281,"Multi-Layer Candidate (Rep C, 512, Tuned)",0.2948,0.2272,-0.1147,0.0321
+"[1.0, 1.5) s (Normal GM)",20281,"Compact Linear Ridge (Rep A, Direct Ridge)",0.2954,0.2277,-0.1148,0.0309
+"[1.5, 2.0) s (Intermediate)",19836,Baseline A (DNN-G),0.2542,0.1637,-0.1218,0.5121
+"[1.5, 2.0) s (Intermediate)",19836,"Historical Feature ELM (Rep A, 512, a=0.01)",0.2517,0.1586,-0.1129,0.5172
+"[1.5, 2.0) s (Intermediate)",19836,"Penultimate Candidate (Rep A, 512, Tuned)",0.2517,0.1586,-0.113,0.5173
+"[1.5, 2.0) s (Intermediate)",19836,"Multi-Layer Candidate (Rep C, 512, Tuned)",0.2517,0.1587,-0.1131,0.5171
+"[1.5, 2.0) s (Intermediate)",19836,"Compact Linear Ridge (Rep A, Direct Ridge)",0.2518,0.1591,-0.1137,0.5169
+"[2.0, 2.5) s (Delayed)",20275,Baseline A (DNN-G),0.1699,0.0838,-0.0517,0.5805
+"[2.0, 2.5) s (Delayed)",20275,"Historical Feature ELM (Rep A, 512, a=0.01)",0.1661,0.078,-0.0415,0.5908
+"[2.0, 2.5) s (Delayed)",20275,"Penultimate Candidate (Rep A, 512, Tuned)",0.166,0.078,-0.0415,0.5912
+"[2.0, 2.5) s (Delayed)",20275,"Multi-Layer Candidate (Rep C, 512, Tuned)",0.1658,0.0779,-0.0415,0.5921
+"[2.0, 2.5) s (Delayed)",20275,"Compact Linear Ridge (Rep A, Direct Ridge)",0.1657,0.079,-0.0425,0.5923
+"[2.5, 3.0] s (Late)",19880,Baseline A (DNN-G),0.2681,0.1256,-0.104,0.3121
+"[2.5, 3.0] s (Late)",19880,"Historical Feature ELM (Rep A, 512, a=0.01)",0.263,0.1211,-0.101,0.3152
+"[2.5, 3.0] s (Late)",19880,"Penultimate Candidate (Rep A, 512, Tuned)",0.263,0.1211,-0.1011,0.3152
+"[2.5, 3.0] s (Late)",19880,"Multi-Layer Candidate (Rep C, 512, Tuned)",0.2628,0.1205,-0.101,0.3153
+"[2.5, 3.0] s (Late)",19880,"Compact Linear Ridge (Rep A, Direct Ridge)",0.2627,0.1212,-0.1011,0.3156
