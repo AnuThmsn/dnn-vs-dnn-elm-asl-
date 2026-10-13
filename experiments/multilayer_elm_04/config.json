@@ -1,0 +1,98 @@
+{
+  "experiment": "Experiment 4 - Multi-Layer Feature ELM",
+  "fixed_acquisition": {
+    "plds_seconds": [
+      1.525,
+      2.025,
+      2.525,
+      3.025
+    ],
+    "tau_seconds": 1.8,
+    "noise_model": "dual_channel_rician",
+    "reference_constants": {
+      "T1_blood": 1.66,
+      "T1_tissue": 1.2,
+      "alpha": 0.85,
+      "beta": 0.75,
+      "lambda": 0.9
+    }
+  },
+  "target_ranges": {
+    "cbf_ml_100g_min": [
+      0.0,
+      100.0
+    ],
+    "att_seconds": [
+      0.5,
+      3.0
+    ]
+  },
+  "cbf_network": {
+    "checkpoint": "CBFnet_G_baselineA.pth",
+    "input_dim": 4,
+    "hidden_layers": 5,
+    "units_per_layer": 128,
+    "activation": "ELU",
+    "penultimate_layer_index": 9,
+    "penultimate_dim": 128,
+    "layer_indices": {
+      "h1": 1,
+      "h2": 3,
+      "h3": 5,
+      "h4": 7,
+      "h5": 9
+    },
+    "layer_dimensions": {
+      "h1": 128,
+      "h2": 128,
+      "h3": 128,
+      "h4": 128,
+      "h5": 128
+    },
+    "y_mean": 50.00099182128906,
+    "y_std": 28.86714474079295
+  },
+  "att_network": {
+    "checkpoint": "ATTnet_G_baselineA.pth",
+    "input_dim": 4,
+    "hidden_layers": 4,
+    "units_per_layer": 64,
+    "activation": "ELU",
+    "penultimate_layer_index": 7,
+    "penultimate_dim": 64,
+    "layer_indices": {
+      "h1": 1,
+      "h2": 3,
+      "h3": 5,
+      "h4": 7
+    },
+    "layer_dimensions": {
+      "h1": 64,
+      "h2": 64,
+      "h3": 64,
+      "h4": 64
+    },
+    "y_mean": 1.7515541315078735,
+    "y_std": 0.7220693866233789
+  },
+  "representations": {
+    "Rep_A": "Penultimate layer only (CBF: h5 [128-d], ATT: h4 [64-d]) - Control",
+    "Rep_B": "Adjacent hidden layers (CBF: h4 + h5 [256-d], ATT: h3 + h4 [128-d])",
+    "Rep_C": "Early + penultimate (CBF: h1 + h5 [256-d], ATT: h1 + h4 [128-d])",
+    "Rep_D": "Normalized multi-layer (CBF: h1 + h3 + h5 [384-d] L2-normalized, ATT: h1 + h2 + h4 [192-d] L2-normalized)",
+    "Rep_E": "Compact PCA projection of all hidden layers fitted strictly on training data (CBF: 128-d, ATT: 64-d)"
+  },
+  "nonlinear_readouts": [
+    "1. Ridge ELM (Tanh)",
+    "2. ELM with alternative activations (ELU, ReLU)",
+    "3. Kernel-ELM / Random Fourier Features (RBF kernel)",
+    "4. Compact regularized readout"
+  ],
+  "validation_verification": {
+    "cbf_pred_diff_max": 0.0,
+    "att_pred_diff_max": 0.0,
+    "cbf_penult_diff_max": 0.0,
+    "att_penult_diff_max": 0.0,
+    "status": "PASSED_NON_INVASIVE_VERIFIED"
+  }
+}
