@@ -1,0 +1,47 @@
+{
+  "CBFnet_G_baselineA.pth": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\CBFnet_G_baselineA.pth",
+    "sha256": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b",
+    "size_bytes": 272034
+  },
+  "ATTnet_G_baselineA.pth": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\ATTnet_G_baselineA.pth",
+    "sha256": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016",
+    "size_bytes": 55570
+  },
+  "normalization_stats.npz": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\cache\\normalization_stats.npz",
+    "sha256": "d2637da7af19559a75862190692017e2a720cfe6b4cebeec2e29b8ceaac8f728",
+    "size_bytes": 1560
+  },
+  "clean_grid.npz": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\cache\\clean_grid.npz",
+    "sha256": "3c4be7886239248bc061de669c538e18f9eaa8c10711526332e67429e4451e03",
+    "size_bytes": 173484
+  },
+  "X_val.npy": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\cache\\X_val.npy",
+    "sha256": "754c545fe35cc4eac110084e666044d8fe1ee721672bd1e1a451baae77759762",
+    "size_bytes": 1600128
+  },
+  "Y_val.npy": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\cache\\Y_val.npy",
+    "sha256": "b86a9c3e6663373a5d555a5684fe2f16976e5d7b8291187a8592433bdeafc6d1",
+    "size_bytes": 800128
+  },
+  "X_test.npy": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\cache\\X_test.npy",
+    "sha256": "ec0e6bcb76b5ab178e44b72db3553847214bc12da9f32e701c60ae1cd0309528",
+    "size_bytes": 1600128
+  },
+  "Y_test.npy": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\cache\\Y_test.npy",
+    "sha256": "dcdc5cfba85f71f29b10594a36a0babd1ca39f40b707a4d7fa23641204fbaeab",
+    "size_bytes": 800128
+  },
+  "snr_test.npy": {
+    "path": "D:\\dnn vs dnn elm\\experiments\\cache\\snr_test.npy",
+    "sha256": "4ef93cbf7cd690182906a049ff2f72293545d270fc6d51a59436216d615851e6",
+    "size_bytes": 800128
+  }
+}
