@@ -1,0 +1,5 @@
+Candidate_Name,Description,Val_CBF_RMSE,Val_CBF_Gain_%,Val_ATT_RMSE,Val_ATT_Gain_%,Val_Early_ATT_RMSE,Test_CBF_RMSE,Test_CBF_Gain_%,Test_ATT_RMSE,Test_ATT_Gain_%,Test_Early_ATT_RMSE
+Baseline A (DNN-G),Baseline Frozen DNN,3.7411,0.0,0.3042,0.0,0.4572,3.7266,0.0,0.3058,0.0,0.4664
+Historical Feature ELM (5 seeds),"Penultimate ELM (H=512, alpha=1e-2, 5 seeds)",3.7027,1.03,0.3037,0.19,0.4608,3.6849,1.12,0.3048,0.31,0.4694
+Candidate 1: Convex Ensemble Blend,"Convex blend: 0.99 ELM + 0.01 DNN (CBF), 0.92 ELM + 0.08 DNN (ATT)",3.7027,1.03,0.3036,0.2,0.4604,3.6849,1.12,0.3049,0.3,0.4691
+Candidate 2: Latent Linear Ridge,Linear ridge on penultimate features (alpha=10/100),3.7087,0.87,0.304,0.09,0.4615,3.6926,0.91,0.3054,0.14,0.4705
