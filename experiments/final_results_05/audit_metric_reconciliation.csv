@@ -1,0 +1,11 @@
+Report_Source,Model_Name,Data_Split,Training_Size,Ensemble_Seeds,CBF_RMSE,CBF_MAE,ATT_RMSE,ATT_MAE,Discrepancy_Notes
+baseline_A/test_summary_baselineA.csv,Baseline A (DNN-G),Locked Test (N=100k),"1,000,000",N/A (Deterministic DNN),3.72658,2.53233,0.3058,0.19352,Authoritative frozen baseline test metrics. 100% identical in all reports.
+elm_models/all_models_test_comparison.csv,DNN-Feature ELM (Single Seed),Locked Test (N=100k),"1,000,000",1 (Seed 42),3.68505,2.42476,0.304997,0.190613,"Original single-seed feature ELM run (H=512, alpha=1e-2, tanh)."
+elm_models/all_models_test_comparison.csv,Ensemble Feature ELM (5 seeds),Locked Test (N=100k),"1,000,000",5 seeds (42-46),3.68279,2.42324,0.304875,0.19039,5-seed ensemble pulls CBF down by ~0.0022 and ATT by ~0.00012 via variance reduction.
+elm_tuning_01/final_test_metrics.csv,Historical Feature ELM (5 seeds),Locked Test (N=100k),"1,000,000",5 seeds (42-46),3.682789,2.423241,0.304875,0.19039,Identical to elm_models 5-seed ensemble.
+elm_tuning_01/final_test_metrics.csv,Tuned ELM Single Best (Seed 42),Locked Test (N=100k),"1,000,000","1 (Seed 42, H=2048)",3.682404,2.422674,0.304838,0.190481,"Hyperparameter tuned (H=2048, CBF elu alpha=1.0, ATT tanh alpha=100)."
+elm_tuning_01/final_test_metrics.csv,Tuned ELM Ensemble (10 seeds),Locked Test (N=100k),"1,000,000",10 seeds,3.681368,2.420762,0.304821,0.190456,10-seed ensemble of H=2048 models.
+elm_features_02/final_test_metrics.csv,Historical Feature ELM (5 seeds),Locked Test (N=100k),"1,000,000",5 seeds,3.682789,2.423241,0.304875,0.19039,Identical to elm_tuning_01 5-seed ensemble.
+reference_calibration_03/final_test_metrics.csv,"Historical Feature ELM (5 seeds, Subsample Tr)",Locked Test (N=100k),"100,000 (Subsample)",5 seeds,3.690407,2.435165,0.305964,0.191185,"Trained on 100k training subsample instead of 1M, causing ~0.0076 CBF and ~0.0011 ATT RMSE shift."
+multilayer_elm_04/final_test_metrics.csv,"Historical Feature ELM (Rep A, Single Seed)",Locked Test (N=100k),"1,000,000",1 (Seed 42),3.6876,2.4313,0.305,0.1907,"Evaluated as single-seed control model (H=512, alpha=1e-2, seed 42)."
+multilayer_elm_04/final_test_metrics.csv,"Multi-Layer Feature ELM (Rep C, Single Seed)",Locked Test (N=100k),"1,000,000",1 (Seed 42),3.6869,2.4339,0.305,0.1907,"Concatenated [h1, h5] (CBF) and [h1, h4] (ATT). Negligible difference vs Rep A single seed."
