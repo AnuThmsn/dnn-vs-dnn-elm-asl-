@@ -1,0 +1,7 @@
+# Final Model Comparison Table
+
+| Model | CBF_RMSE | CBF_MAE | CBF_Bias | CBF_CCC | CBF_R2 | CBF_Gain_% | ATT_RMSE | ATT_MAE | ATT_Bias | ATT_CCC | ATT_R2 | ATT_Gain_% | Early_ATT_RMSE | Early_ATT_Bias |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Baseline A (DNN-G) | 3.7266 | 2.5323 | -0.1731 | 0.9916 | 0.9833 | 0.0 | 0.3058 | 0.1935 | -0.0066 | 0.9009 | 0.8195 | 0.0 | 0.4664 | 0.3691 |
+| Ensemble Feature ELM (5 seeds) | 3.6849 | 2.4296 | -0.008 | 0.9918 | 0.9837 | 1.12 | 0.3048 | 0.1905 | -0.0008 | 0.9016 | 0.8207 | 0.31 | 0.4694 | 0.3717 |
+

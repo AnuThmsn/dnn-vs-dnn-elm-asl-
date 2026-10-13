@@ -1,0 +1,14 @@
+{
+  "plds_seconds": [
+    1.525,
+    2.025,
+    2.525,
+    3.025
+  ],
+  "label_duration_tau_seconds": 1.8,
+  "blood_T1_seconds": 1.66,
+  "tissue_T1_seconds": 1.2,
+  "inversion_efficiency_alpha": 0.85,
+  "partition_coefficient_lambda": 0.9,
+  "noise_model": "dual_channel_rician"
+}

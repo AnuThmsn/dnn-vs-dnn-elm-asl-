@@ -1,0 +1,49 @@
+{
+  "presentation_title": "Comparative ASL-MRI Parameter Estimation: DNN vs DNN-Feature ELM",
+  "date_generated": "2026-10-13",
+  "fixed_acquisition_protocol": {
+    "plds_seconds": [
+      1.525,
+      2.025,
+      2.525,
+      3.025
+    ],
+    "label_duration_tau_seconds": 1.8,
+    "blood_T1_seconds": 1.66,
+    "tissue_T1_seconds": 1.2,
+    "inversion_efficiency_alpha": 0.85,
+    "partition_coefficient_lambda": 0.9,
+    "noise_model": "dual_channel_rician"
+  },
+  "selected_models": {
+    "baseline_dnn": {
+      "name": "Baseline A (DNN-G)",
+      "cbf_checkpoint": "experiments/baseline_A/CBFnet_G_baselineA.pth",
+      "att_checkpoint": "experiments/baseline_A/ATTnet_G_baselineA.pth",
+      "architecture_cbf": "StandardizedNet (input=4, hidden=5, units=128, activation=ELU)",
+      "architecture_att": "StandardizedNet (input=4, hidden=4, units=64, activation=ELU)",
+      "normalization": "experiments/baseline_A/normalization_stats.npz"
+    },
+    "primary_elm_candidate": {
+      "name": "Ensemble Feature ELM (5 seeds)",
+      "feature_source": "Penultimate layer activations (h5 for CBF [128-d], h4 for ATT [64-d])",
+      "hidden_units": 512,
+      "activation": "tanh",
+      "regularization_alpha": 0.01,
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "solver": "Closed-form regularized ridge regression via GPU-chunked float64 accumulation"
+    }
+  },
+  "evaluation_dataset": {
+    "test_split_path": "experiments/cache/X_test.npy",
+    "test_labels_path": "experiments/cache/Y_test.npy",
+    "test_snr_path": "experiments/cache/SNR_test.npy",
+    "test_sample_count": 100000
+  }
+}
