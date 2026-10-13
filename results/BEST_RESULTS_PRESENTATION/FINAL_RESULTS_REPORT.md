@@ -163,3 +163,4 @@ The script executes in $\approx 45\text{ seconds}$ on an NVIDIA GTX 1650 GPU, re
    **No.** Early-ATT remains fundamentally unidentifiable under late PLDs ($\ge 1.525\text{ s}$), and regularized readouts slightly degrade early-ATT error by $-0.64\%$.
 4. **Is the Feature ELM justified as the project benchmark?**  
    **Yes.** Because it trains in $15\text{ seconds}$ without iterative gradient descent and provides the best overall CBF/ATT trade-off without adding architectural complexity, the **5-Seed Ensemble Feature ELM** is firmly recommended as the project's definitive DNN+ELM estimator.
+

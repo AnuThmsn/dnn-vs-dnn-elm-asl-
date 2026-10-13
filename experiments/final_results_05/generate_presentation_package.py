@@ -647,8 +647,13 @@ def main():
 
     # Copy script as reproduction script in reproducibility/
     import shutil
-    shutil.copy(__file__, os.path.join(REPRO_DIR, "reproduce_all.py"))
-    shutil.copy(__file__, os.path.join(PRES_DIR, "reproduce_all.py"))
+    src_abs = os.path.abspath(__file__)
+    dst_repro = os.path.abspath(os.path.join(REPRO_DIR, "reproduce_all.py"))
+    dst_pres = os.path.abspath(os.path.join(PRES_DIR, "reproduce_all.py"))
+    if src_abs != dst_repro:
+        shutil.copy(src_abs, dst_repro)
+    if src_abs != dst_pres:
+        shutil.copy(src_abs, dst_pres)
 
     print("[Presentation Package] All tables, graphs, manifests and documentation created.")
 
