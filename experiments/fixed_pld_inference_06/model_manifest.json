@@ -1,0 +1,46 @@
+{
+  "experiment": "fixed_pld_inference_06",
+  "selected_model": "Ensemble Feature ELM (5 seeds)",
+  "base_backbone": {
+    "CBFnet": "experiments/baseline_A/CBFnet_G_baselineA.pth",
+    "ATTnet": "experiments/baseline_A/ATTnet_G_baselineA.pth",
+    "architecture": "StandardizedNet (CBF: 5x128 ELU, ATT: 4x64 ELU)"
+  },
+  "elm_configuration": {
+    "n_hidden": 512,
+    "alpha": 0.01,
+    "activation": "tanh",
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "input_features": "penultimate_layer_activations (128 for CBF, 64 for ATT)"
+  },
+  "acquisition_protocol": {
+    "plds_seconds": [
+      1.525,
+      2.025,
+      2.525,
+      3.025
+    ],
+    "tau_seconds": 1.8,
+    "t1t_seconds": 1.2,
+    "t1a_seconds": 1.66,
+    "alpha": 0.85,
+    "beta": 0.75,
+    "lambda": 0.9
+  },
+  "metrics": {
+    "locked_test_N": 100000,
+    "cbf_rmse_dnn": 3.7266,
+    "cbf_rmse_elm": 3.6849,
+    "cbf_rmse_bayes_floor": 3.6931,
+    "att_rmse_dnn": 0.3058,
+    "att_rmse_elm": 0.3048,
+    "early_att_rmse_dnn": 0.4664,
+    "early_att_rmse_elm": 0.4694
+  }
+}
