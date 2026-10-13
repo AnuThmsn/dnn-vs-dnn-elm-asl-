@@ -1,0 +1,90 @@
+{
+  "experiment_name": "elm_features_02",
+  "description": "Physics-Informed Features and Leakage-Free DNN Residual ELM",
+  "acquisition_protocol": {
+    "plds": [1.525, 2.025, 2.525, 3.025],
+    "tau": 1.8,
+    "T1t": 1.2,
+    "T1a": 1.66,
+    "alpha": 0.85,
+    "beta": 0.75,
+    "lambda": 0.9
+  },
+  "frozen_dnn_backbones": {
+    "cbf_backbone": {
+      "checkpoint": "experiments/baseline_A/CBFnet_G_baselineA.pth",
+      "sha256": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b",
+      "architecture": "StandardizedNet(4 inputs, 5 hidden layers x 128 neurons, ELU)",
+      "penultimate_feature_dim": 128
+    },
+    "att_backbone": {
+      "checkpoint": "experiments/baseline_A/ATTnet_G_baselineA.pth",
+      "sha256": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016",
+      "architecture": "StandardizedNet(4 inputs, 4 hidden layers x 64 neurons, ELU)",
+      "penultimate_feature_dim": 64
+    }
+  },
+  "reference_elm_baselines": {
+    "historical_feature_elm": {
+      "type": "Ensemble Feature ELM (5 seeds)",
+      "hidden_neurons": 512,
+      "activation": "tanh",
+      "ridge_alpha": 0.01,
+      "ensemble_seeds": [42, 43, 44, 45, 46],
+      "cbf_test_rmse": 3.682789,
+      "cbf_test_mae": 2.423241,
+      "cbf_test_ccc": 0.991791,
+      "att_test_rmse": 0.304875,
+      "att_test_mae": 0.190390,
+      "att_test_ccc": 0.901608
+    },
+    "experiment_1_tuned_elm_5ens": {
+      "type": "Tuned ELM 5-Seed Ensemble",
+      "cbf_config": {
+        "hidden_neurons": 2048,
+        "ridge_alpha": 1.0,
+        "activation": "elu"
+      },
+      "att_config": {
+        "hidden_neurons": 2048,
+        "ridge_alpha": 100.0,
+        "activation": "tanh"
+      },
+      "ensemble_seeds": [42, 43, 44, 45, 46],
+      "cbf_test_rmse": 3.681497,
+      "cbf_test_mae": 2.421046,
+      "cbf_test_ccc": 0.991797,
+      "att_test_rmse": 0.304813,
+      "att_test_mae": 0.190454,
+      "att_test_ccc": 0.901637
+    }
+  },
+  "dataset_splits": {
+    "train_size": 1000000,
+    "val_size": 100000,
+    "test_size": 100000,
+    "snr_values": [5.0, 8.0, 10.0, 12.0, 15.0, 20.0, 30.0, 50.0, 100.0, 200.0, 500.0, "inf"],
+    "noise_model": "Dual-channel Rician noise on complex signal components",
+    "normalization": {
+      "cbf_mean": 50.00099182128906,
+      "cbf_std": 28.86714474079295,
+      "att_mean": 1.7515541315078735,
+      "att_std": 0.7220693866233789
+    },
+    "physical_clipping": {
+      "cbf": [10.0, 120.0],
+      "att": [0.5, 3.0]
+    }
+  },
+  "feature_representations": {
+    "Representation_A": "Penultimate Latents (CBF: 128-dim, ATT: 64-dim)",
+    "Representation_B": "Penultimate Latents + 4 Raw ASL measurements",
+    "Representation_C": "Penultimate Latents + Normalized signals and temporal differences",
+    "Representation_D": "Penultimate Latents + Physically derived features (slopes, ratios, AUC, decay rates)"
+  },
+  "residual_learning_protocol": {
+    "oof_folds": 5,
+    "leakage_guard": "Out-of-fold cross-validation on training partition to generate non-memorized residual targets",
+    "target_definition": "Residual = True - DNN_Predicted"
+  }
+}
