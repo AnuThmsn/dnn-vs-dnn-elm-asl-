@@ -1,0 +1,57 @@
+{
+  "benchmark": "Fixed 4-PLD pCASL (PLDs=[1.525, 2.025, 2.525, 3.025]s, tau=1.8s)",
+  "baseline_dnn": {
+    "cbf_model": "StandardizedNet (5 layers x 128 neurons, ELU)",
+    "att_model": "StandardizedNet (4 layers x 64 neurons, ELU)",
+    "cbf_checkpoint": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\CBFnet_G_baselineA.pth",
+    "att_checkpoint": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\ATTnet_G_baselineA.pth",
+    "sha256_cbf": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b",
+    "sha256_att": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016"
+  },
+  "dnn_elm": {
+    "variant": "Ensemble Feature ELM (5 seeds: 42, 43, 44, 45, 46) and Single-Seed Feature ELM (seed 42)",
+    "hidden_units": 512,
+    "activation": "tanh",
+    "regularization_alpha": 0.01,
+    "input_features": "Penultimate layer activations of Baseline A DNN-G (128 dims for CBF, 64 dims for ATT)",
+    "implementation": "experiments/elm_models/elm_engine.py (GPUChunkedELM)"
+  },
+  "test_cohort": {
+    "total_samples": 100000,
+    "snr_10_samples": 8358,
+    "snr_15_samples": 8279,
+    "snr_20_samples": 8385
+  },
+  "artifacts_manifest": {
+    "CBFnet_G_baselineA.pth": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\CBFnet_G_baselineA.pth",
+      "sha256": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b",
+      "size_bytes": 272034
+    },
+    "ATTnet_G_baselineA.pth": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\ATTnet_G_baselineA.pth",
+      "sha256": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016",
+      "size_bytes": 55570
+    },
+    "normalization_stats.npz": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\baseline_A\\normalization_stats.npz",
+      "sha256": "d2637da7af19559a75862190692017e2a720cfe6b4cebeec2e29b8ceaac8f728",
+      "size_bytes": 1560
+    },
+    "X_test.npy": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\cache\\X_test.npy",
+      "sha256": "ec0e6bcb76b5ab178e44b72db3553847214bc12da9f32e701c60ae1cd0309528",
+      "size_bytes": 1600128
+    },
+    "Y_test.npy": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\cache\\Y_test.npy",
+      "sha256": "dcdc5cfba85f71f29b10594a36a0babd1ca39f40b707a4d7fa23641204fbaeab",
+      "size_bytes": 800128
+    },
+    "snr_test.npy": {
+      "path": "D:\\dnn vs dnn elm\\experiments\\cache\\snr_test.npy",
+      "sha256": "4ef93cbf7cd690182906a049ff2f72293545d270fc6d51a59436216d615851e6",
+      "size_bytes": 800128
+    }
+  }
+}
