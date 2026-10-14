@@ -1,0 +1,42 @@
+{
+  "study": "DNN-Feature ELM Ensemble Architecture Verification and Optimal Size Study",
+  "directory": "experiments/dnn_vs_dnn_elm_snr_report/ensemble_size_study/",
+  "plds_seconds": [
+    1.525,
+    2.025,
+    2.525,
+    3.025
+  ],
+  "ensemble_sizes_evaluated": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "snr_targets_db": [
+    10,
+    15,
+    20
+  ],
+  "replications": 3,
+  "input_checkpoints": {
+    "CBFnet_G_baselineA.pth": "76154e7d429263a278401c2f038e78bfa05b0090a0d658b2aa1daee95ecda69b",
+    "ATTnet_G_baselineA.pth": "91688d8beecf5151dfdb4092d16e4d06c910918b0411fc72c7da15f764025016",
+    "normalization_stats.npz": "d2637da7af19559a75862190692017e2a720cfe6b4cebeec2e29b8ceaac8f728"
+  },
+  "study_artifacts": {
+    "architecture_audit.md": "1a0b36db11e5351d2a8a9c85ad63ceec790e9719b2438e0ce368dfe3130d06bb",
+    "run_phase1_audit.py": "a38ae1c3d16c40a534907ea3cdcb43714f484a7171d1724bbe91a4bd37669bfc",
+    "run_ensemble_study.py": "4e4d6d445ae7c66fc209609e06c0f1902d3255385071c7e38b399636073e5b2b",
+    "ensemble_size_metrics.csv": "c468ead02d07d1c1e4fc6f4d8c44a8c65cad845b70b008b5d0c47b7c9f45d300",
+    "ensemble_size_summary.csv": "9ac97c7a4d5649555978a90465efe65b93bbeb3774e6036a6a87bffd80707fb2",
+    "member_diversity_metrics.csv": "2edde8f9351ce7b57f15084b860826ab878b44e80c8a36c212f74e7d3ea6da52",
+    "ensemble_size_report.md": "258e66bb29c0e3d7df14319056d70a125767a29b1be09fb61665720ed9964670"
+  },
+  "summary_findings": {
+    "recommended_ensemble_size": 5,
+    "justification": "Optimal variance reduction with saturated error curve at K=5; K=10 yields < 0.0003 error reduction; K=1 incurs higher variance.",
+    "members_are_distinct": true,
+    "aggregation_method": "Unweighted arithmetic mean of physical parameter estimates after clipping"
+  }
+}
