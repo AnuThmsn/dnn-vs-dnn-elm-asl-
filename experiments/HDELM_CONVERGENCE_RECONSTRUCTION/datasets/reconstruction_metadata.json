@@ -1,0 +1,446 @@
+{
+  "run_utc": "2026-11-01T18:09:06.967116+00:00",
+  "workspace_root": "D:\\dnn vs dnn elm",
+  "reconstruction_not_historical_byte_identity": true,
+  "historical_training_arrays_persisted": false,
+  "historical_validation_arrays_persisted": false,
+  "dataset_seeds": {
+    "train": 42,
+    "validation": 99
+  },
+  "controlled_torch_python_numpy_seed": 42,
+  "dataloader_seed": 42,
+  "sample_counts": {
+    "training": 1000000,
+    "validation": 100000
+  },
+  "array_shapes": {
+    "X_train_raw": [
+      1000000,
+      4
+    ],
+    "X_train_normalized": [
+      1000000,
+      4
+    ],
+    "Y_train_physical": [
+      1000000,
+      2
+    ],
+    "X_validation_raw": [
+      100000,
+      4
+    ],
+    "X_validation_normalized": [
+      100000,
+      4
+    ],
+    "Y_validation_physical": [
+      100000,
+      2
+    ]
+  },
+  "plds_seconds": [
+    1.525,
+    2.025,
+    2.525,
+    3.025
+  ],
+  "snr_levels": [
+    10.0,
+    10.1010101010101,
+    10.202020202020202,
+    10.303030303030303,
+    10.404040404040405,
+    10.505050505050505,
+    10.606060606060606,
+    10.707070707070708,
+    10.808080808080808,
+    10.909090909090908,
+    11.01010101010101,
+    11.11111111111111,
+    11.212121212121213,
+    11.313131313131313,
+    11.414141414141413,
+    11.515151515151516,
+    11.616161616161616,
+    11.717171717171716,
+    11.818181818181818,
+    11.919191919191919,
+    12.02020202020202,
+    12.121212121212121,
+    12.222222222222221,
+    12.323232323232324,
+    12.424242424242424,
+    12.525252525252526,
+    12.626262626262626,
+    12.727272727272727,
+    12.828282828282829,
+    12.929292929292929,
+    13.030303030303031,
+    13.131313131313131,
+    13.232323232323232,
+    13.333333333333334,
+    13.434343434343434,
+    13.535353535353536,
+    13.636363636363637,
+    13.737373737373737,
+    13.838383838383837,
+    13.93939393939394,
+    14.040404040404042,
+    14.141414141414142,
+    14.242424242424242,
+    14.343434343434343,
+    14.444444444444445,
+    14.545454545454545,
+    14.646464646464647,
+    14.747474747474747,
+    14.848484848484848,
+    14.94949494949495,
+    15.05050505050505,
+    15.151515151515152,
+    15.252525252525253,
+    15.353535353535353,
+    15.454545454545453,
+    15.555555555555555,
+    15.656565656565657,
+    15.757575757575758,
+    15.858585858585858,
+    15.959595959595958,
+    16.060606060606062,
+    16.161616161616163,
+    16.262626262626263,
+    16.363636363636363,
+    16.464646464646464,
+    16.565656565656568,
+    16.666666666666668,
+    16.767676767676768,
+    16.86868686868687,
+    16.96969696969697,
+    17.070707070707073,
+    17.17171717171717,
+    17.272727272727273,
+    17.373737373737374,
+    17.474747474747474,
+    17.575757575757574,
+    17.676767676767675,
+    17.77777777777778,
+    17.87878787878788,
+    17.97979797979798,
+    18.080808080808083,
+    18.18181818181818,
+    18.282828282828284,
+    18.383838383838384,
+    18.484848484848484,
+    18.58585858585859,
+    18.686868686868685,
+    18.78787878787879,
+    18.88888888888889,
+    18.98989898989899,
+    19.09090909090909,
+    19.19191919191919,
+    19.292929292929294,
+    19.393939393939394,
+    19.494949494949495,
+    19.595959595959595,
+    19.696969696969695,
+    19.7979797979798,
+    19.8989898989899,
+    20.0
+  ],
+  "parameters": {
+    "CBF": [
+      0.0,
+      100.0
+    ],
+    "ATT": [
+      0.5,
+      3.0
+    ]
+  },
+  "noise_model": "source experiments.physics.add_rician_noise (dual-channel quadrature Rician magnitude)",
+  "simulator": "source experiments.physics.compute_physical_signals (Buxton GKM)",
+  "generation_procedure_source_sha256": {
+    "experiments\\physics.py": "931ab58b958c8466761157beb2e273f29e6d66cefc9f16690e7193815777803c",
+    "experiments\\paper_reproduction_snr10_15_20\\run_reproduction_pipeline.py": "5f81a032cdca21c2fc032fa1c493fb06fe7e2443fdc926592fc81bbb77dda695",
+    "experiments\\paper_reproduction_snr10_15_20\\models\\dnn_g.py": "0da8d3441b7b6e831bb31be161adc50a3368aafa74b32509392f66edaa7fa81e",
+    "experiments\\paper_reproduction_snr10_15_20\\config\\experiment_config.json": "c515916c386031c72b504c60275370da227f460e01c90b278202d2685da1893f"
+  },
+  "reconstructed_dataset_sha256": {
+    "training_dataset_file_sha256": "2ee40ab484d74b7064a6f5b0d3fec3c0d92a5306608f384f1f5780a2bbacb440",
+    "validation_dataset_file_sha256": "f8f3f44449998b7db80c44b5bf0f4da07920ece18d2db7a6148527e6ff3d7089",
+    "normalization_file_sha256": "b2cf522979c574a19a4d6949702fe931f99c2df8be43225e37994d9d09492426",
+    "training_arrays": {
+      "X_raw": "bb5cf6e9dcd0255971dbbe2a96c89316f9b18f16af15fce16c22a5c758173463",
+      "X_normalized": "5426a9724c4304528171142d4b57c77c5cdc304b3f50319c58b8f9c716883308",
+      "Y_physical": "f0b6cb6075c7fe8abb1a90bbe9aa1792c20b9bda395b28a329167c466074c5ad",
+      "snr": "fddf3a1aeaffc843f770087efd71cb6f870ac7ead2a48e1c6d794f9e3b36dc34"
+    },
+    "validation_arrays": {
+      "X_raw": "ff54effab774ef3ba28dafb642ba13407a194f9a6e770fcfe1e759f39ee01ad8",
+      "X_normalized": "76033fe061697e47774c051bb999c59d6843963ac99883fad241c28f7db2fefa",
+      "Y_physical": "ec15f229b61e25b5cbacb8d9c2363832f107dd338f41183264c33be592719864",
+      "snr": "1c7337b5b2492d477244eeee1fad6341039dd90f15672f7005dd777643b1fafd"
+    },
+    "normalization_arrays": {
+      "X_mean": "d4e9769419a294668223f3a282421cf4670b8f6857a0e6b33d2b74d7ef420d1d",
+      "X_std": "b5c89be544c1f5a73d4c70096acff6dbc2ca2fe3387e9fedd02b327f02be6f85"
+    }
+  },
+  "library_versions": {
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "pytorch": "2.5.1+cu121",
+    "matplotlib": "3.10.8",
+    "device": "cuda",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "cudnn_version": 90100,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false
+  },
+  "configuration": {
+    "experiment_name": "paper_reproduction_snr10_15_20",
+    "paper_title": "A Residual Hybrid DNN-ELM Model for CBF and ATT Estimation in Multi-Delay ASL MRI",
+    "physics": {
+      "plds": [
+        1.525,
+        2.025,
+        2.525,
+        3.025
+      ],
+      "tau": 1.8,
+      "t1_tissue": 1.2,
+      "t1_blood": 1.66,
+      "alpha": 0.85,
+      "beta": 0.75,
+      "lambda_partition": 0.9,
+      "scale": 100000.0,
+      "sig_ref_sc": 334.2039
+    },
+    "physiological_ranges": {
+      "cbf_min": 0.0,
+      "cbf_max": 100.0,
+      "att_min": 0.5,
+      "att_max": 3.0
+    },
+    "datasets": {
+      "train": {
+        "n_unique_pairs": 10000,
+        "n_snr_levels": 100,
+        "snr_range": [
+          10.0,
+          20.0
+        ],
+        "total_samples": 1000000,
+        "seed": 42
+      },
+      "val": {
+        "n_unique_pairs": 1000,
+        "n_snr_levels": 100,
+        "snr_range": [
+          10.0,
+          20.0
+        ],
+        "total_samples": 100000,
+        "seed": 99
+      },
+      "independent_test": {
+        "snr_targets": [
+          10.0,
+          15.0,
+          20.0
+        ],
+        "samples_per_snr": 10000,
+        "total_samples": 30000,
+        "seed": 2026
+      }
+    },
+    "dnn_architecture": {
+      "hidden_layers": 4,
+      "hidden_neurons": 64,
+      "activation": "ELU",
+      "output_head": "bounded_sigmoid",
+      "initialization": "kaiming_normal",
+      "batch_size": 512,
+      "learning_rate": 0.001,
+      "max_epochs": 200,
+      "patience": 10,
+      "grad_clip": 1.0
+    },
+    "hdelm_architecture": {
+      "dnn_penultimate_dim": 64,
+      "physics_features_dim": 15,
+      "combined_feature_dim": 79,
+      "elm_hidden_neurons": 512,
+      "elm_activation": "tanh",
+      "ridge_lambda": 0.01,
+      "elm_seed": 42
+    }
+  },
+  "historical_plot_copies": [
+    "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\figures\\historical_original_audit\\cbf_convergence.png",
+    "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\figures\\historical_original_audit\\cbf_convergence.pdf",
+    "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\figures\\historical_original_audit\\att_convergence.png",
+    "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\figures\\historical_original_audit\\att_convergence.pdf",
+    "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\figures\\historical_original_audit\\combined_cbf_att_convergence.png",
+    "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\figures\\historical_original_audit\\combined_cbf_att_convergence.pdf"
+  ],
+  "existing_checkpoint_hashes_before": {
+    "cbf": "519b79441033dcdff269e7f278004a32fd6f0ba9da2e4bb5374191a8e376bfdb",
+    "att": "41fe41a456345735506d8312c25fe98835dc4a28e9d4b2a9499d86e4a8b688eb"
+  },
+  "original_audit_history_hashes_before": {
+    "cbf": "945a9b0c8c98e5ea39f1b34ed344986cee0b2d6000e72835f124c1d9d9c01041",
+    "att": "2594d1ffd58d0285a7057d514d5e210903ebfea04633883285fda26b7977e548"
+  },
+  "finalized_package_file_hashes_before": {
+    "submited h-delm\\README.md": "772257a5b6bbe7f2f882cf7c8e6df30c07d6d503f3e89928721f537a160759ea",
+    "submited h-delm\\datasets\\att_dnn_g_training_history.csv": "2594d1ffd58d0285a7057d514d5e210903ebfea04633883285fda26b7977e548",
+    "submited h-delm\\datasets\\cbf_dnn_g_training_history.csv": "945a9b0c8c98e5ea39f1b34ed344986cee0b2d6000e72835f124c1d9d9c01041",
+    "submited h-delm\\datasets\\dataset_metadata.json": "defdd7aa829d4ed25678ef31d07e2a615c5d4cde658f337e9b2f89ae1e0078fb",
+    "submited h-delm\\datasets\\dataset_statistics.csv": "8f8f1d0b84a320f453ba6fa0993f92acb314fe816361e54a26ccf8ecfdd03cac",
+    "submited h-delm\\datasets\\final_test_dataset_metadata.json": "6fa4ce5d23986e196e111f42a514e177a5f139085d0314ce1c7dded0208152a3",
+    "submited h-delm\\datasets\\residual_calibration_100k.npz": "052c01b831d2840681bbe5184279040d167e876c388649b2a97b6ae5d0f1865d",
+    "submited h-delm\\figures\\pdf\\fig01_hdelm_architecture.pdf": "958166bcdedd0982232c924b4d525846992813e296739577b67304373a189c9f",
+    "submited h-delm\\figures\\pdf\\fig02_training_validation_loss.pdf": "135f6968c50b097250658e62212b021a21707f653ebb49bade8ea38d9c47f66e",
+    "submited h-delm\\figures\\pdf\\fig03_cbf_rmse_vs_snr.pdf": "e62194ae74ec2fb6f233d13dbc1d61012cb8409f3321e0a31fe7d9aaccbb8b72",
+    "submited h-delm\\figures\\pdf\\fig04_att_rmse_vs_snr.pdf": "95d0cfe8e0b8c60283c8a8117ef3063e37c0cc10f6ac1f00112e694a5c19b02a",
+    "submited h-delm\\figures\\pdf\\fig05_cbf_prediction_scatter.pdf": "edba0a0e1202eb64989f106a20adb9dff25226d5c58db775d64ecb638fba9820",
+    "submited h-delm\\figures\\pdf\\fig06_att_prediction_scatter.pdf": "812746d60ccdf39582c66526decae7ac097501905ea431d213543d427471cac1",
+    "submited h-delm\\figures\\pdf\\fig07_bland_altman_simulated.pdf": "f1a5d0890d4e21921d0dfea512fa37a2fc30dc0319788ab0faba46e667504cf6",
+    "submited h-delm\\figures\\pdf\\fig08_error_distributions.pdf": "84f0e04bf2e5cadacacdcd420cc17c6c6d86385fea3f134a2618453035597778",
+    "submited h-delm\\figures\\pdf\\fig09_elm_residual_correction.pdf": "bfbaa2560f53411eff9db6fdb366a2c8961c2460bd9a5e468d32afec31288d03",
+    "submited h-delm\\figures\\pdf\\fig10_relative_rmse_improvement.pdf": "57e0db7982ba59514530133670ba59564c8ae383d0fc7bc90b45079075fb3d69",
+    "submited h-delm\\figures\\pdf\\fig11_statistical_significance.pdf": "77143347879fc532a82da35830b03beff20332dc2cb2e53e3663ca45d734916a",
+    "submited h-delm\\figures\\png\\fig01_hdelm_architecture.png": "d097a1a083bb21908157622ff01d2dd39c61624a0ad5a3f1bef709cff95e5faa",
+    "submited h-delm\\figures\\png\\fig02_training_validation_loss.png": "cc2a49b83b856ac1fffbd76977d1273b7fd0150ca1b11a39da480e88cd9279ca",
+    "submited h-delm\\figures\\png\\fig03_cbf_rmse_vs_snr.png": "b254516ba8e0a9f1155a33a5c91db45dee0842f0043adc3fd6c59cfeafcc5d83",
+    "submited h-delm\\figures\\png\\fig04_att_rmse_vs_snr.png": "6f73e93a9007d30f8bda14c14172f16e81ae737b0b5f144dec07ea045e171747",
+    "submited h-delm\\figures\\png\\fig05_cbf_prediction_scatter.png": "c68dcdae5885b1d30347173a89e1476b5a735d921a3a92e77b8eef9e7740524c",
+    "submited h-delm\\figures\\png\\fig06_att_prediction_scatter.png": "0cb8bf443d106e578b41a8aacef84d414074b186daa3d33c7b1917cb923ad691",
+    "submited h-delm\\figures\\png\\fig07_bland_altman_simulated.png": "10649d45c89ef17aa1ac1609b38eb0613262a703382d004004389e1fa17f2982",
+    "submited h-delm\\figures\\png\\fig08_error_distributions.png": "396711e2d5cc4b6f9c4a1c52c76f83c51ad10080dc0bbb0c665bd7165f073f34",
+    "submited h-delm\\figures\\png\\fig09_elm_residual_correction.png": "73071e80d3017ed510bf72d8e165e3c26f1f5bb9efb95a129274c6016c6a227e",
+    "submited h-delm\\figures\\png\\fig10_relative_rmse_improvement.png": "1a717c589cd69d79443563b5b1d28c05a105e2651726b2698fc5ced2912f10a0",
+    "submited h-delm\\figures\\png\\fig11_statistical_significance.png": "7c3d52df8082daf667c25b8f24c51d291b8d90159021ab3a4aa5627f16d4f22c",
+    "submited h-delm\\figures\\svg\\fig01_hdelm_architecture.svg": "dd686f1c8ad0e5f316398d051afce965d0bf07c36208ed16df9022a0a0cf2cc9",
+    "submited h-delm\\figures\\svg\\fig02_training_validation_loss.svg": "56959a579d6452c000c7952c2012d2dc9f44fd1067701cb85a0df8806aebbd85",
+    "submited h-delm\\figures\\svg\\fig03_cbf_rmse_vs_snr.svg": "646acef98011081f145e531599b9c25cb8c66728dd77541cb9924fcb51039247",
+    "submited h-delm\\figures\\svg\\fig04_att_rmse_vs_snr.svg": "65fd71b6dc05a3207196cf0b416eb380c13658595133b9d3df0c40ee638860a8",
+    "submited h-delm\\figures\\svg\\fig05_cbf_prediction_scatter.svg": "0f4b0390690a4765e448e0f4cfc2708f5982f77531d8c27c8969c27ba31b66b7",
+    "submited h-delm\\figures\\svg\\fig06_att_prediction_scatter.svg": "358dfdc5ffce27b165af408d2c047d8443f466ee2249649f667c2ee21197b45c",
+    "submited h-delm\\figures\\svg\\fig07_bland_altman_simulated.svg": "0bb6b20d77f6616ed138474a641c03df89f0a39abd5004304354edadc2a043f0",
+    "submited h-delm\\figures\\svg\\fig08_error_distributions.svg": "4079a5b8ee33c0c326ed2284b4403e2ef6ce4a625c19c5591fd81dbcde8da09f",
+    "submited h-delm\\figures\\svg\\fig09_elm_residual_correction.svg": "5238b228778c06852a108a784399b846d65cf4e3e03da3a4c3bcbc063b7c0d6c",
+    "submited h-delm\\figures\\svg\\fig10_relative_rmse_improvement.svg": "479e2d080615c73d8b19d932df8c3b81c8cf13d35a6b6346a40786e810c6a662",
+    "submited h-delm\\figures\\svg\\fig11_statistical_significance.svg": "4c4c706c640cb65f265329e6b119a7fefb2ad752e95a6224712e233526fd89e8",
+    "submited h-delm\\models\\dnn_checkpoint\\att_dnn_g_best.pth": "41fe41a456345735506d8312c25fe98835dc4a28e9d4b2a9499d86e4a8b688eb",
+    "submited h-delm\\models\\dnn_checkpoint\\cbf_dnn_g_best.pth": "519b79441033dcdff269e7f278004a32fd6f0ba9da2e4bb5374191a8e376bfdb",
+    "submited h-delm\\models\\hdelm_parameters\\att_hdelm_v2_artifact.npz": "e62c0de16a722c68703217117b0226232c0a85f5afca95c1645cf3e4315bced5",
+    "submited h-delm\\models\\hdelm_parameters\\cbf_hdelm_v2_artifact.npz": "4cd549d0b435ddf0d13b2e66d367eaaa01d07297f412259d3b150c1ccfe98e4c",
+    "submited h-delm\\models\\model_metadata\\att_dnn_g_training_history.csv": "2594d1ffd58d0285a7057d514d5e210903ebfea04633883285fda26b7977e548",
+    "submited h-delm\\models\\model_metadata\\cbf_dnn_g_training_history.csv": "945a9b0c8c98e5ea39f1b34ed344986cee0b2d6000e72835f124c1d9d9c01041",
+    "submited h-delm\\models\\model_metadata\\execution_v2.log": "bd235b67cf1bfafde6cd16be4f68c0c08362d76a2604460cde207a75f0edd628",
+    "submited h-delm\\models\\model_metadata\\final_verification_config.json": "44bd86b5571ec6c9d8db22580a0b85d53e9206a8817b33e7bb6494ea3b4b9adc",
+    "submited h-delm\\models\\model_metadata\\hdelm_v2_historical_config_seed2026.json": "5f32f9a1ef671e3fa9796c26eed077feae7913cbfa649b114e1973caa58f8e4e",
+    "submited h-delm\\models\\model_metadata\\input_normalization_stats.npz": "b2cf522979c574a19a4d6949702fe931f99c2df8be43225e37994d9d09492426",
+    "submited h-delm\\models\\model_metadata\\lambda_sensitivity_att.csv": "39ec995dc3a118577a760e7d760120ee289b83c5f0da9c732788ae2737e45b28",
+    "submited h-delm\\models\\model_metadata\\lambda_sensitivity_cbf.csv": "a0f2856d944907a2e65569bad075855be92b5db678f44f7831c7f5d686204289",
+    "submited h-delm\\models\\model_metadata\\v1_historical_config_seed2026.json": "c515916c386031c72b504c60275370da227f460e01c90b278202d2685da1893f",
+    "submited h-delm\\reports\\ARCHITECTURE_DESCRIPTION.md": "1e9b6b070f4f15e6834bc1bea00bc251f337ec9646262248d2643386b3b3b8fa",
+    "submited h-delm\\reports\\FIGURE_CAPTIONS.md": "d3461b1377389dc906810c45b19a728969ead18f939795542402d003cc3d5721",
+    "submited h-delm\\reports\\HDELM_EXPERIMENTAL_RESULTS.md": "70098070e530143db2bab1d8a36246bc053c542472e379648066474cc57955ad",
+    "submited h-delm\\reports\\LIMITATIONS_AND_QUALIFICATIONS.md": "9b5db95e5718a44567fa544c89a133d0f70f44f72efde0e6286ab2081f756fbf",
+    "submited h-delm\\reports\\REPRODUCIBILITY.md": "82d1fe1c2b3ebcae22bde680b49bb4b0fdcae344dcc1cb06a16b10c6686969c9",
+    "submited h-delm\\reports\\V1_V2_PROVENANCE.md": "22c889693ed6effed91bd19245ad189e0add16347acac6d519183b4e2bf24136",
+    "submited h-delm\\results\\execution_log.txt": "dc740f93ecd46adaeb2d0e945fcb4000ccc3dcaf1309d5b87a67cfdf3f943cfc",
+    "submited h-delm\\results\\final_metrics.csv": "94ef0d35662a14154449f8f871034e64a3b9e0dbc14441c6201564c7181105ab",
+    "submited h-delm\\results\\paired_statistical_tests.csv": "e384375a261caf650a7d331e6deb44d5858b03678ddd5232ee8f77f668c6e7f0",
+    "submited h-delm\\results\\per_snr_comparison.csv": "ed32f8abb491c48640890f3857abed2b815b1263bf7376b133c4bec70ff1391d",
+    "submited h-delm\\results\\predictions.npz": "948fae9112ed4574b57a5cf7c6aa653c5316e37437131efa6c71e8ca8c2e3ea7",
+    "submited h-delm\\results\\test_data_audit.json": "c97dc47cf2409723d5ec42db7a6b9bef4326fb04dbf62bff0e9cc6fa0fba7024",
+    "submited h-delm\\results\\v1_reference\\v1_independent_test_30k_seed2026.npz": "b53c2b61253d510e48eda9e90e62d5a9a3f3a56aa80efbb22f0ea44d5df5de37",
+    "submited h-delm\\results\\v1_reference\\v1_metrics_comparison.csv": "e11ca3bfc3733c6c69a746dbce131c23351d15ffbb9ec85aa42f6da3fb5cd34d",
+    "submited h-delm\\results\\v1_reference\\v1_predictions_30k.npz": "e9f2f4a98e684f982a2e9e7a9987c771d0d1f02a48848aef1c86402220227715",
+    "submited h-delm\\results\\v2_reference\\v2_metrics_comparison_seed2026.csv": "639a0df9f5d147e28607f5867c23546f923202333812dd51885cee1a3b7d15a4",
+    "submited h-delm\\results\\v2_reference\\v2_predictions_30k_seed2026.npz": "bf77d385eaa2530980ef23455fe4be10af2404720c2c20ccc74f1b831fd116b6",
+    "submited h-delm\\scripts\\evaluate_models.py": "8031d97e2c2840ff26bea722acdfc4a3d878c76b2ee682ea347a14535bb1c058",
+    "submited h-delm\\scripts\\generate_figures.py": "86d181307d90dbfc098ed38ca92d7e2aa16008b0033d0eded40c5661005dea51",
+    "submited h-delm\\scripts\\generate_tables.py": "9d2ca9e2cac127703713cdf1903aa28a81b4abe91cb2bb9354a1e00a0d30192b",
+    "submited h-delm\\scripts\\publication_utils.py": "155a21d093f8786f2703ffa7fb2fb188dcb2126062d40cf4fe675e5187b594ae",
+    "submited h-delm\\scripts\\reproduce_results.py": "d3c85a5505bad4775bb7dd7cd4e735d1298d385de293dbae9a64f2c0016f80d2",
+    "submited h-delm\\scripts\\source_dnn_g.py": "0da8d3441b7b6e831bb31be161adc50a3368aafa74b32509392f66edaa7fa81e",
+    "submited h-delm\\scripts\\source_generate_calibration_dataset.py": "88317c03df7580d495e17b260260a6b74ac742adf65411d84f07450acaaf6793",
+    "submited h-delm\\scripts\\source_physics.py": "931ab58b958c8466761157beb2e273f29e6d66cefc9f16690e7193815777803c",
+    "submited h-delm\\scripts\\source_residual_hdelm_v1.py": "80f5219d0d9e9cc8adea237b38b17e9b704e8aafed23fd4f493d692e20f48bc1",
+    "submited h-delm\\scripts\\source_residual_hdelm_v2.py": "788d0d06775ea33439c976650daf74d1ef3a3488edf4ebafca29ae4e897cb5ee",
+    "submited h-delm\\scripts\\source_run_reproduction_pipeline.py": "5f81a032cdca21c2fc032fa1c493fb06fe7e2443fdc926592fc81bbb77dda695",
+    "submited h-delm\\scripts\\source_run_reproduction_pipeline_v2.py": "c3b622aa5262c55f2dda6f552945f92920e10cf499cf7313e9b84b2edebec343",
+    "submited h-delm\\tables\\architecture_table.csv": "65d89a09318b3762f3576cef92920043aafd0c0f015d502fc3b6d567437c7d56",
+    "submited h-delm\\tables\\att_performance.csv": "00de2f62986742337f23f751ff6564c4b8c1b5ffbcd1f3a2377629cbdf7a0d46",
+    "submited h-delm\\tables\\cbf_performance.csv": "5720f82c544ff8afb9777186468259f821c81809789e6533c1b92fa2033ad381",
+    "submited h-delm\\tables\\experimental_configuration.csv": "68d16619d37cd6dc35cc5e71330ba01a9c570e41654f1d483e43fd8ee06c7d6d",
+    "submited h-delm\\tables\\overall_performance.csv": "7b754e544e526e285df71aea24e67a8ece7500a6c7a4e5752ad3d916337c2eb1",
+    "submited h-delm\\tables\\statistical_comparison.csv": "e384375a261caf650a7d331e6deb44d5858b03678ddd5232ee8f77f668c6e7f0"
+  },
+  "controlled_run": {
+    "cbf": {
+      "target": "CBF",
+      "seed": 42,
+      "best_validation_epoch": 4,
+      "epochs_completed": 14,
+      "best_validation_mse_normalized": 0.0011853496444225312,
+      "checkpoint_path": "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\models\\cbf_controlled_best.pth",
+      "checkpoint_sha256": "db0a7582fa367790c5b1ca42a70b9308efb20bfa30432dbd65ef93762bfd1aa8",
+      "architecture_source": "experiments\\paper_reproduction_snr10_15_20\\models\\dnn_g.py",
+      "architecture": {
+        "input_features": 4,
+        "hidden_layers": 4,
+        "neurons_per_hidden_layer": 64,
+        "activation": "ELU",
+        "bounded_output": "sigmoid normalized to target bounds"
+      },
+      "training": {
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "batch_size": 512,
+        "max_epochs": 200,
+        "early_stopping_patience": 10,
+        "gradient_clip_norm": 1.0,
+        "loss": "mean squared error on normalized target",
+        "train_loss_reporting": "epoch-end model.eval() sample-weighted MSE over all train samples",
+        "validation_loss_reporting": "epoch-end model.eval() sample-weighted MSE over all validation samples"
+      }
+    },
+    "att": {
+      "target": "ATT",
+      "seed": 42,
+      "best_validation_epoch": 9,
+      "epochs_completed": 19,
+      "best_validation_mse_normalized": 0.0144442924118042,
+      "checkpoint_path": "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\models\\att_controlled_best.pth",
+      "checkpoint_sha256": "037ba9b4e880c0f344490cef5c09ba6a17f98e0e10996d90506fa61ce273cb95",
+      "architecture_source": "experiments\\paper_reproduction_snr10_15_20\\models\\dnn_g.py",
+      "architecture": {
+        "input_features": 4,
+        "hidden_layers": 4,
+        "neurons_per_hidden_layer": 64,
+        "activation": "ELU",
+        "bounded_output": "sigmoid normalized to target bounds"
+      },
+      "training": {
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "batch_size": 512,
+        "max_epochs": 200,
+        "early_stopping_patience": 10,
+        "gradient_clip_norm": 1.0,
+        "loss": "mean squared error on normalized target",
+        "train_loss_reporting": "epoch-end model.eval() sample-weighted MSE over all train samples",
+        "validation_loss_reporting": "epoch-end model.eval() sample-weighted MSE over all validation samples"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "training_source": "experiments\\paper_reproduction_snr10_15_20\\models\\dnn_g.py",
+  "pipeline_source": "experiments\\paper_reproduction_snr10_15_20\\run_reproduction_pipeline.py",
+  "training_source_sha256": "0da8d3441b7b6e831bb31be161adc50a3368aafa74b32509392f66edaa7fa81e",
+  "pipeline_source_sha256": "5f81a032cdca21c2fc032fa1c493fb06fe7e2443fdc926592fc81bbb77dda695",
+  "original_plot_source": "submited h-delm\\scripts\\publication_utils.py",
+  "original_plot_source_sha256": "155a21d093f8786f2703ffa7fb2fb188dcb2126062d40cf4fe675e5187b594ae",
+  "dataset_statistics_sha256": "8f8f1d0b84a320f453ba6fa0993f92acb314fe816361e54a26ccf8ecfdd03cac",
+  "original_history_preserved_before_plot_generation": true,
+  "training_arrays_persisted": false,
+  "validation_arrays_persisted": false,
+  "retrained": false,
+  "model_architecture_or_parameters_changed": false,
+  "run_command": "python experiments\\HDELM_CONVERGENCE_AUDIT\\run_convergence_audit.py",
+  "checkpoints": {
+    "cbf": {
+      "path": "experiments\\paper_reproduction_snr10_15_20\\models\\cbf_dnn_g_best.pth",
+      "sha256": "519b79441033dcdff269e7f278004a32fd6f0ba9da2e4bb5374191a8e376bfdb",
+      "packaged_path": "submited h-delm\\models\\dnn_checkpoint\\cbf_dnn_g_best.pth",
+      "packaged_sha256": "519b79441033dcdff269e7f278004a32fd6f0ba9da2e4bb5374191a8e376bfdb",
+      "strict_load": true,
+      "best_validation_epoch_from_history": 27,
+      "checkpoint_embeds_epoch": false,
+      "history_sha256_by_copy": {
+        "experiments\\paper_reproduction_snr10_15_20\\results\\cbf_dnn_g_training_history.csv": "945a9b0c8c98e5ea39f1b34ed344986cee0b2d6000e72835f124c1d9d9c01041",
+        "submited h-delm\\models\\model_metadata\\cbf_dnn_g_training_history.csv": "945a9b0c8c98e5ea39f1b34ed344986cee0b2d6000e72835f124c1d9d9c01041",
+        "experiments\\HDELM_CONVERGENCE_AUDIT\\original_histories\\cbf_dnn_g_training_history.csv": "945a9b0c8c98e5ea39f1b34ed344986cee0b2d6000e72835f124c1d9d9c01041"
+      }
+    },
+    "att": {
+      "path": "experiments\\paper_reproduction_snr10_15_20\\models\\att_dnn_g_best.pth",
+      "sha256": "41fe41a456345735506d8312c25fe98835dc4a28e9d4b2a9499d86e4a8b688eb",
+      "packaged_path": "submited h-delm\\models\\dnn_checkpoint\\att_dnn_g_best.pth",
+      "packaged_sha256": "41fe41a456345735506d8312c25fe98835dc4a28e9d4b2a9499d86e4a8b688eb",
+      "strict_load": true,
+      "best_validation_epoch_from_history": 16,
+      "checkpoint_embeds_epoch": false,
+      "history_sha256_by_copy": {
+        "experiments\\paper_reproduction_snr10_15_20\\results\\att_dnn_g_training_history.csv": "2594d1ffd58d0285a7057d514d5e210903ebfea04633883285fda26b7977e548",
+        "submited h-delm\\models\\model_metadata\\att_dnn_g_training_history.csv": "2594d1ffd58d0285a7057d514d5e210903ebfea04633883285fda26b7977e548",
+        "experiments\\HDELM_CONVERGENCE_AUDIT\\original_histories\\att_dnn_g_training_history.csv": "2594d1ffd58d0285a7057d514d5e210903ebfea04633883285fda26b7977e548"
+      }
+    }
+  }
+}

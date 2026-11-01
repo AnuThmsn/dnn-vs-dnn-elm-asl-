@@ -255,7 +255,7 @@ def architecture_figure():
         ax.annotate("", (x2, y2), (x1, y1), arrowprops={"arrowstyle": "->", "lw": 1.25, "color": color})
 
     box(0.25, 2.9, 1.7, 1.1, "Simulated ASL signals\n4 PLDs: 1.525–3.025 s", "#e7edf4")
-    box(2.5, 4.65, 2.2, 1.1, "Frozen DNN-G\n4 × 64 ELU layers", "#dceaf7")
+    box(2.5, 4.65, 2.2, 1.1, "Frozen DNN\n4 × 64 ELU layers", "#dceaf7")
     box(5.35, 4.65, 2.0, 1.1, "DNN prediction\nCBF and ATT heads", "#dceaf7")
     box(2.5, 1.05, 2.2, 1.1, "Signal features\n15 physics-derived values", "#e4f2e7")
     box(5.35, 2.9, 2.0, 1.2, "Concatenate\n64 DNN + 15 signal\n= 79 features", "#f0e9f8")
@@ -278,7 +278,7 @@ def architecture_figure():
     ax.plot([7.35, 7.7, 12.8, 12.8], [5.2, 6.4, 6.4, 1.1], color="#286090", lw=1.25)
     arrow(12.8, 1.1, 12.55, 1.1, color="#286090")
     ax.text(0.35, 6.35, "Blue path: DNN estimate passed directly to final output", color="#286090", fontsize=8.5)
-    ax.set_title("Implemented H-DELM V2 inference and residual-calibration flow", pad=10)
+    ax.set_title("Implemented H-DELM inference and residual-calibration flow", pad=10)
     fig.tight_layout()
     save_figure(fig, "fig01_hdelm_architecture")
 
@@ -294,7 +294,7 @@ def generate_figures():
     architecture_figure()
 
     fig, axes = plt.subplots(1, 2, figsize=(9, 3.6))
-    for ax, prefix, title in zip(axes, ("cbf", "att"), ("CBF DNN-G", "ATT DNN-G")):
+    for ax, prefix, title in zip(axes, ("cbf", "att"), ("CBF DNN", "ATT DNN")):
         hist = pd.read_csv(ROOT / "models" / "model_metadata" / f"{prefix}_dnn_g_training_history.csv")
         ax.plot(hist["epoch"], hist["train_loss"], label="Training loss", color="#276FBF", lw=1.5)
         ax.plot(hist["epoch"], hist["val_loss"], label="Validation loss", color="#D1495B", lw=1.5)
@@ -303,7 +303,7 @@ def generate_figures():
         ax.set_title(f"{title} ({len(hist)} epochs)")
         ax.legend(frameon=False)
         ax.grid(axis="y", alpha=0.2)
-    fig.suptitle("DNN-G training and validation convergence")
+    fig.suptitle("DNN training and validation convergence")
     fig.tight_layout()
     save_figure(fig, "fig02_training_validation_loss")
 
@@ -312,8 +312,8 @@ def generate_figures():
         fig, ax = plt.subplots(figsize=(5.4, 3.7))
         x = np.arange(3)
         width = 0.34
-        ax.bar(x - width / 2, rows["DNN-G RMSE"], width, label="DNN-G", color="#276FBF")
-        ax.bar(x + width / 2, rows["H-DELM RMSE"], width, label="H-DELM V2", color="#D1495B")
+        ax.bar(x - width / 2, rows["DNN-G RMSE"], width, label="DNN", color="#276FBF")
+        ax.bar(x + width / 2, rows["H-DELM RMSE"], width, label="H-DELM", color="#D1495B")
         ax.set_xticks(x, [str(v) for v in levels])
         ax.set_xlabel("SNR")
         ax.set_ylabel(f"{parameter} RMSE ({units})")
@@ -327,7 +327,7 @@ def generate_figures():
     for parameter, index, units in parameters:
         fig, axes = plt.subplots(1, 2, figsize=(9.5, 4.2), sharex=True, sharey=True)
         for ax, model, key, color in zip(
-            axes, ("DNN-G", "H-DELM V2"), (f"{parameter.lower()}_dnn", f"{parameter.lower()}_hdelm"), ("#276FBF", "#D1495B")
+            axes, ("DNN", "H-DELM"), (f"{parameter.lower()}_dnn", f"{parameter.lower()}_hdelm"), ("#276FBF", "#D1495B")
         ):
             sample = rng.choice(len(truth), min(8000, len(truth)), replace=False)
             y = truth[sample, index]
@@ -355,7 +355,7 @@ def generate_figures():
     for ax, (parameter, index, units), model, key in zip(
         axes.flat,
         (parameters[0], parameters[0], parameters[1], parameters[1]),
-        ("DNN-G", "H-DELM V2", "DNN-G", "H-DELM V2"),
+        ("DNN", "H-DELM", "DNN", "H-DELM"),
         ("cbf_dnn", "cbf_hdelm", "att_dnn", "att_hdelm"),
     ):
         estimate = pred[key].astype(np.float64)
@@ -363,7 +363,7 @@ def generate_figures():
         difference = estimate - truth[:, index]
         bias = float(np.mean(difference))
         loa = 1.96 * float(np.std(difference, ddof=1))
-        ax.scatter(average, difference, s=4, alpha=0.12, rasterized=True, color="#276FBF" if model == "DNN-G" else "#D1495B")
+        ax.scatter(average, difference, s=4, alpha=0.12, rasterized=True, color="#276FBF" if model == "DNN" else "#D1495B")
         ax.axhline(bias, color="#222222", lw=1.2, label=f"Bias {bias:.4f}")
         ax.axhline(bias + loa, color="#777777", linestyle="--", lw=1, label=f"+1.96 SD {bias+loa:.4f}")
         ax.axhline(bias - loa, color="#777777", linestyle="--", lw=1, label=f"−1.96 SD {bias-loa:.4f}")
@@ -381,7 +381,7 @@ def generate_figures():
         keys = (f"{parameter.lower()}_dnn", f"{parameter.lower()}_hdelm")
         for ax, level in zip(axes[row], levels):
             mask = snr == level
-            for key, model, color in zip(keys, ("DNN-G", "H-DELM V2"), ("#276FBF", "#D1495B")):
+            for key, model, color in zip(keys, ("DNN", "H-DELM"), ("#276FBF", "#D1495B")):
                 errors = pred[key][mask] - truth[mask, index]
                 ax.hist(errors, bins=60, density=True, histtype="step", lw=1.3, label=model, color=color)
             ax.axvline(0, color="#333333", linestyle="--", lw=0.9)
@@ -428,8 +428,8 @@ def generate_figures():
         ax.set_ylabel(f"H-DELM error ({units})")
 
         ax = axes[3, col]
-        ax.hist(err_before, bins=70, density=True, histtype="step", lw=1.3, label="DNN-G", color="#276FBF")
-        ax.hist(err_after, bins=70, density=True, histtype="step", lw=1.3, label="H-DELM V2", color="#D1495B")
+        ax.hist(err_before, bins=70, density=True, histtype="step", lw=1.3, label="DNN", color="#276FBF")
+        ax.hist(err_after, bins=70, density=True, histtype="step", lw=1.3, label="H-DELM", color="#D1495B")
         ax.axvline(0, color="#333333", linestyle="--", lw=0.8)
         ax.set_title(f"Overall error distributions")
         ax.set_xlabel(f"Prediction − truth ({units})")
@@ -452,7 +452,7 @@ def generate_figures():
     ax.axhline(0, color="#333333", lw=0.9)
     ax.set_xticks(x, xlabels)
     ax.set_ylabel("Relative RMSE improvement (%)")
-    ax.set_title("H-DELM V2 relative RMSE change versus DNN-G")
+    ax.set_title("H-DELM relative RMSE change versus DNN")
     ax.grid(axis="y", alpha=0.18)
     for xi, value in zip(x, improvements):
         ax.text(xi, value + (0.035 if value >= 0 else -0.035), f"{value:+.2f}%", ha="center", va="bottom" if value >= 0 else "top", fontsize=8)
@@ -472,7 +472,7 @@ def generate_figures():
         ax.text(high[i] + 0.015, y_positions[i], label, va="center", fontsize=7.5)
     ax.axvline(0, color="#333333", linestyle="--", lw=0.9)
     ax.set_yticks(y_positions, [f"{r.Parameter}, SNR {int(r.SNR)}" for r in stat_df.itertuples()])
-    ax.set_xlabel("Paired RMSE improvement: DNN-G − H-DELM (positive favors H-DELM)")
+    ax.set_xlabel("Paired RMSE improvement: DNN − H-DELM (positive favors H-DELM)")
     ax.set_title(f"Paired bootstrap 95% intervals ({N_BOOTSTRAP:,} resamples); Wilcoxon p-values Holm-adjusted")
     ax.grid(axis="x", alpha=0.18)
     fig.tight_layout()

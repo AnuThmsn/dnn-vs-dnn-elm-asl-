@@ -1,0 +1,28 @@
+{
+  "target": "ATT",
+  "seed": 42,
+  "best_validation_epoch": 9,
+  "epochs_completed": 19,
+  "best_validation_mse_normalized": 0.0144442924118042,
+  "checkpoint_path": "experiments\\HDELM_CONVERGENCE_RECONSTRUCTION\\models\\att_controlled_best.pth",
+  "checkpoint_sha256": "037ba9b4e880c0f344490cef5c09ba6a17f98e0e10996d90506fa61ce273cb95",
+  "architecture_source": "experiments\\paper_reproduction_snr10_15_20\\models\\dnn_g.py",
+  "architecture": {
+    "input_features": 4,
+    "hidden_layers": 4,
+    "neurons_per_hidden_layer": 64,
+    "activation": "ELU",
+    "bounded_output": "sigmoid normalized to target bounds"
+  },
+  "training": {
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "batch_size": 512,
+    "max_epochs": 200,
+    "early_stopping_patience": 10,
+    "gradient_clip_norm": 1.0,
+    "loss": "mean squared error on normalized target",
+    "train_loss_reporting": "epoch-end model.eval() sample-weighted MSE over all train samples",
+    "validation_loss_reporting": "epoch-end model.eval() sample-weighted MSE over all validation samples"
+  }
+}
