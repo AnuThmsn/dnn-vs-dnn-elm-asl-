@@ -1,0 +1,65 @@
+{
+  "experiment_name": "paper_reproduction_snr10_15_20",
+  "paper_title": "A Residual Hybrid DNN-ELM Model for CBF and ATT Estimation in Multi-Delay ASL MRI",
+  "physics": {
+    "plds": [1.525, 2.025, 2.525, 3.025],
+    "tau": 1.8,
+    "t1_tissue": 1.2,
+    "t1_blood": 1.66,
+    "alpha": 0.85,
+    "beta": 0.75,
+    "lambda_partition": 0.9,
+    "scale": 100000.0,
+    "sig_ref_sc": 334.2039
+  },
+  "physiological_ranges": {
+    "cbf_min": 0.0,
+    "cbf_max": 100.0,
+    "att_min": 0.5,
+    "att_max": 3.0
+  },
+  "datasets": {
+    "train": {
+      "n_unique_pairs": 10000,
+      "n_snr_levels": 100,
+      "snr_range": [10.0, 20.0],
+      "total_samples": 1000000,
+      "seed": 42
+    },
+    "val": {
+      "n_unique_pairs": 1000,
+      "n_snr_levels": 100,
+      "snr_range": [10.0, 20.0],
+      "total_samples": 100000,
+      "seed": 99
+    },
+    "independent_test": {
+      "snr_targets": [10.0, 15.0, 20.0],
+      "samples_per_snr": 10000,
+      "total_samples": 30000,
+      "seed": 2026
+    }
+  },
+  "dnn_architecture": {
+    "hidden_layers": 4,
+    "hidden_neurons": 64,
+    "activation": "ELU",
+    "output_head": "bounded_sigmoid",
+    "initialization": "kaiming_normal",
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "max_epochs": 200,
+    "patience": 10,
+    "grad_clip": 1.0
+  },
+  "hdelm_architecture": {
+    "dnn_penultimate_dim": 64,
+    "physics_features_dim": 15,
+    "combined_feature_dim": 79,
+    "elm_hidden_neurons": 512,
+    "elm_activation": "tanh",
+    "ridge_lambda": 0.01,
+    "elm_seed": 42
+  }
+}
+
