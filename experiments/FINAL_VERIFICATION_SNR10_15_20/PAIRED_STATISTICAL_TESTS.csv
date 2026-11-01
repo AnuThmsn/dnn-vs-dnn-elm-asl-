@@ -1,0 +1,7 @@
+SNR,Parameter,Test,p_value,median_squared_error_difference_DNN_minus_HDELM,holm_adjusted_p_value,significant_at_0.05
+10,CBF,Paired Wilcoxon signed-rank on per-observation squared errors,5.498197205234759e-37,0.1481196188001377,3.298918323140856e-36,True
+10,ATT,Paired Wilcoxon signed-rank on per-observation squared errors,0.6265954839470556,1.571164247593515e-07,1.0,False
+15,CBF,Paired Wilcoxon signed-rank on per-observation squared errors,1.071968785873726e-06,0.03065626759780571,5.35984392936863e-06,True
+15,ATT,Paired Wilcoxon signed-rank on per-observation squared errors,0.3089271263779694,-1.555085069071538e-05,1.0,False
+20,CBF,Paired Wilcoxon signed-rank on per-observation squared errors,0.8905229298661894,-0.0006915718632001244,1.0,False
+20,ATT,Paired Wilcoxon signed-rank on per-observation squared errors,0.6331336535246805,4.776246925075611e-06,1.0,False

@@ -1,0 +1,95 @@
+{
+  "generated_utc": "2026-11-01T10:03:28.112508+00:00",
+  "test_seed": 20261101,
+  "training_seed_documented_in_pipeline": 42,
+  "validation_seed_documented_in_pipeline": 99,
+  "calibration_seed_stored_in_dataset": 31415,
+  "calibration_shape": [
+    100000,
+    4
+  ],
+  "calibration_snr_range": [
+    10.000048536713873,
+    19.999902335927978
+  ],
+  "legacy_test_seed": 2026,
+  "snr_levels": [
+    10.0,
+    15.0,
+    20.0
+  ],
+  "samples_per_snr": {
+    "10": 10000,
+    "15": 10000,
+    "20": 10000
+  },
+  "total_samples": 30000,
+  "input_shape": [
+    30000,
+    4
+  ],
+  "target_shape": [
+    30000,
+    2
+  ],
+  "plds_seconds": [
+    1.525,
+    2.025,
+    2.525,
+    3.025
+  ],
+  "cbf_range": [
+    0.0,
+    100.0
+  ],
+  "att_range_seconds": [
+    0.5,
+    3.0
+  ],
+  "simulator": "experiments.physics.compute_physical_signals + add_rician_noise",
+  "noise_model": "dual-channel quadrature Rician magnitude; sigma=SIG_REF_SC/SNR",
+  "finite_signals_and_labels": true,
+  "labels_in_physiological_bounds": true,
+  "exact_test_label_pair_overlap": {
+    "train_exact_parameter_pair_intersections": 0,
+    "validation_exact_parameter_pair_intersections": 0,
+    "calibration_exact_parameter_pair_intersections": 0
+  },
+  "overlap_check_scope": "Exact CBF/ATT label-pair intersections against source-pipeline regenerated train/validation parameter pairs and stored calibration labels; not a cryptographic proof of historical non-use.",
+  "models_loaded": [
+    "Frozen DNN-G CBF/ATT checkpoints from V1",
+    "Saved H-DELM V2 ELM artifacts (W, b, beta, feature scaler)"
+  ],
+  "no_test_fit_or_tuning": true,
+  "artifact_sha256": {
+    "experiments\\paper_reproduction_snr10_15_20\\models\\cbf_dnn_g_best.pth": "519b79441033dcdff269e7f278004a32fd6f0ba9da2e4bb5374191a8e376bfdb",
+    "experiments\\paper_reproduction_snr10_15_20\\models\\att_dnn_g_best.pth": "41fe41a456345735506d8312c25fe98835dc4a28e9d4b2a9499d86e4a8b688eb",
+    "experiments\\paper_reproduction_snr10_15_20\\results\\input_normalization_stats.npz": "b2cf522979c574a19a4d6949702fe931f99c2df8be43225e37994d9d09492426",
+    "experiments\\paper_reproduction_snr10_15_20_v2\\models\\cbf_hdelm_v2_artifact.npz": "4cd549d0b435ddf0d13b2e66d367eaaa01d07297f412259d3b150c1ccfe98e4c",
+    "experiments\\paper_reproduction_snr10_15_20_v2\\models\\att_hdelm_v2_artifact.npz": "e62c0de16a722c68703217117b0226232c0a85f5afca95c1645cf3e4315bced5",
+    "experiments\\paper_reproduction_snr10_15_20_v2\\results\\data\\residual_calibration_100k.npz": "052c01b831d2840681bbe5184279040d167e876c388649b2a97b6ae5d0f1865d"
+  },
+  "output_sha256": {
+    "FINAL_PREDICTIONS.npz": "948fae9112ed4574b57a5cf7c6aa653c5316e37437131efa6c71e8ca8c2e3ea7",
+    "FINAL_METRICS.csv": "21e6aea1c808fbbee6b6b91fbaabca1c0c5bc8b148220688a53e1ad09354a36a",
+    "FINAL_PER_SNR_COMPARISON.csv": "ed32f8abb491c48640890f3857abed2b815b1263bf7376b133c4bec70ff1391d",
+    "PAIRED_STATISTICAL_TESTS.csv": "67a7f66bd7658fa3a0089ac19fad902c2465b6aca27891a6bcef94fe8407af9d",
+    "PER_SNR_RMSE_COMPARISON.png": "7fccf64651bda5bd7b1d900a49ed7bb1073312f63290ac9f650824594cf81bd3",
+    "CBF_PREDICTION_VS_GROUND_TRUTH.png": "78b49a0b6fe160e739caa73405c18b9975eaa8c821c62ff5961e57db9640cef7",
+    "ATT_PREDICTION_VS_GROUND_TRUTH.png": "4a0566dcbfb8c8e80b6fffaaaa2b73f7005048694b7f4287aab36bc8cc2c73c9",
+    "CBF_RESIDUAL_DISTRIBUTIONS.png": "3ffad1801c2992fea579e3387ccc921fdac5a2a5ef8f782e22c69d3a77751f7a",
+    "ATT_RESIDUAL_DISTRIBUTIONS.png": "6dd530b556bdb1a22d44cc5500a773a9258ca1c4e994bf55c9e5c7cfe21debce"
+  },
+  "runtime": {
+    "numpy": "2.2.6",
+    "torch": "2.5.1+cu121",
+    "scipy": "1.15.3",
+    "cuda_available": true
+  },
+  "outputs": {
+    "predictions": "FINAL_PREDICTIONS.npz",
+    "metrics": "FINAL_METRICS.csv",
+    "comparison": "FINAL_PER_SNR_COMPARISON.csv",
+    "paired_tests": "PAIRED_STATISTICAL_TESTS.csv"
+  }
+}

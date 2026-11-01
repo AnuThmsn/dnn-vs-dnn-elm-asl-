@@ -20,7 +20,7 @@ from torch.utils.data import TensorDataset, DataLoader
 
 # Enforce Drive D environment and memory controls
 import memory_config
-from physics import (
+from experiments.physics import (
     PLDS, TAU, CBF_MIN, CBF_MAX, ATT_MIN, ATT_MAX,
     SNR_VALUES, compute_physical_signals, add_rician_noise
 )
@@ -29,7 +29,7 @@ OUT_DIR = os.path.join(os.path.dirname(__file__), "baseline_A")
 CACHE_DIR = os.path.join(os.path.dirname(__file__), "cache")
 os.makedirs(OUT_DIR, exist_ok=True)
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
 print(f"Using compute device: {device} ({torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'})")
 
 
@@ -110,7 +110,8 @@ def calc_metrics(y_true, y_pred):
 # 3. Training Loop (Cell 11 of notebook 1)
 # -------------------------------------------------------------
 def train_standardized(net, X_tr_n, Y_col_tr, X_val_n, Y_col_val,
-                       batch_size=512, max_epochs=200, patience=10, lr=1e-3, verbose=True):
+                       batch_size=512, max_epochs=200, patience=10, lr=1e-3, verbose=True,
+                       log_prefix="", best_ckpt_path=None, recovery_ckpt_path=None):
     Y_tr_std = ((Y_col_tr - net.y_mean) / net.y_std).astype(np.float32)
     Y_val_std = ((Y_col_val - net.y_mean) / net.y_std).astype(np.float32)
 
@@ -156,20 +157,30 @@ def train_standardized(net, X_tr_n, Y_col_tr, X_val_n, Y_col_val,
 
         history.append({"epoch": epoch + 1, "train_loss": tr, "val_loss": vl})
         if verbose and (epoch % 5 == 0 or epoch == max_epochs - 1):
-            print(f"  Epoch {epoch+1:3d}: train={tr:.6f} val={vl:.6f}")
+            print(f"{log_prefix}Epoch {epoch+1:3d}: train={tr:.6f} val={vl:.6f}", flush=True)
 
         if vl < best_val:
             best_val = vl
             best_state = copy.deepcopy(net.state_dict())
             no_imp = 0
+            if best_ckpt_path:
+                torch.save(best_state, best_ckpt_path)
         else:
             no_imp += 1
             if no_imp >= patience:
-                print(f"  Early stopping at epoch {epoch+1} (no val improvement for {patience} epochs)")
+                print(f"{log_prefix}Early stopping at epoch {epoch+1} (no val improvement for {patience} epochs)", flush=True)
                 break
 
+        if recovery_ckpt_path and ((epoch + 1) % 10 == 0):
+            torch.save({
+                "epoch": epoch + 1,
+                "state_dict": net.state_dict(),
+                "best_val": best_val,
+                "history": history
+            }, recovery_ckpt_path)
+
     train_time = time.time() - t0
-    print(f"Training completed in {train_time:.2f} seconds ({len(history)} epochs)")
+    print(f"{log_prefix}Training completed in {train_time:.2f} seconds ({len(history)} epochs)", flush=True)
     net.load_state_dict(best_state)
     del ds_tr, ds_val, ld_tr, ld_val, optim, crit, Y_tr_std, Y_val_std
     memory_config.cleanup_memory()

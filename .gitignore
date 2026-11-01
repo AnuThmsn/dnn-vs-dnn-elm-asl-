@@ -3,8 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 .cache/
+cache/
+**/cache/
+*.npy
 .tmp/
 tmp/
+scratch/
 
 # Jupyter checkpoints
 .ipynb_checkpoints/

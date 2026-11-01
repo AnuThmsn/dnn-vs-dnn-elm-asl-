@@ -6,13 +6,16 @@ Peak RAM consumption is capped under 100 MB.
 """
 
 import os
+import sys
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(ROOT)
 import gc
 import json
 import numpy as np
 
 # Enforce Drive D environment first
 import memory_config
-from physics import (
+from experiments.physics import (
     PLDS, TAU, CBF_MIN, CBF_MAX, ATT_MIN, ATT_MAX,
     SNR_VALUES, compute_physical_signals, add_rician_noise
 )
