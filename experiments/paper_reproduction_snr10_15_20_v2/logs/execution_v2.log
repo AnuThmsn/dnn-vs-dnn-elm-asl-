@@ -1,0 +1,131 @@
+V2 REPRODUCTION EXPERIMENT EXECUTION LOG
+Started: Sun Nov  1 15:07:39 2026
+
+=====================================================================================
+V2 STUDY: SCIENTIFIC CORRECTION & FINAL VALIDATION OF RESIDUAL H-DELM
+Protocol: Independent Residual Calibration (100k), 3-Way Test Comparison on identical 30k test cohort
+Compute Device: cuda
+=====================================================================================
+
+[STEP 1] Verifying V1 assets and loading frozen DNN-G backbones...
+  Verified asset: cbf_dnn_g_best.pth (55,706 bytes)
+  Verified asset: att_dnn_g_best.pth (55,706 bytes)
+  Verified asset: input_normalization_stats.npz (426 bytes)
+  Verified asset: independent_test_30k.npz (651,169 bytes)
+  Verified asset: reproduction_predictions_30k.npz (854,094 bytes)
+  Successfully loaded and frozen CBFnet and ATTnet 4x64 backbones.
+
+[STEP 2] Loading/generating independent residual-calibration dataset (N=100,000, Seed=31415)...
+  Loaded calibration dataset from disk: D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\results\data\residual_calibration_100k.npz
+  Calibration data shape: X=(100000, 4), Y=(100000, 2)
+
+[STEP 3] Running ELM Ridge Lambda Sensitivity Analysis on Calibration Split...
+  Evaluating lambda grid for CBF ELM...
+  Evaluating lambda grid for ATT ELM...
+  CBF Lambda Grid Analysis:
+ ridge_lambda   val_mse  val_rmse  val_mae  val_bias
+       0.0001 11.482979  3.388654 2.560853 -0.028495
+       0.0010 11.482972  3.388653 2.560852 -0.028495
+       0.0100 11.482900  3.388643 2.560843 -0.028497
+       0.1000 11.482199  3.388539 2.560750 -0.028513
+       1.0000 11.476825  3.387746 2.560065 -0.028654
+  ATT Lambda Grid Analysis:
+ ridge_lambda  val_mse  val_rmse  val_mae  val_bias
+       0.0001 0.102764  0.320568 0.211038  0.001450
+       0.0010 0.102763  0.320567 0.211038  0.001450
+       0.0100 0.102762  0.320565 0.211034  0.001450
+       0.1000 0.102749  0.320545 0.211004  0.001452
+       1.0000 0.102658  0.320402 0.210795  0.001468
+  Selected CBF lambda=1.0, ATT lambda=1.0. Default paper lambda=0.01.
+
+[STEP 4] Fitting H-DELM V2 on full 100k calibration observations & saving artifacts...
+
+[STEP 5] Loading preserved independent test cohort (30k observations)...
+  Running inference with H-DELM V2 across 30,000 test observations...
+  Saved 3-way test predictions to D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\results\predictions\reproduction_predictions_30k_v2.npz
+
+[STEP 6] Verifying standalone inference engine numerical equivalence...
+  Standalone inference engine validated successfully with exact numerical equality.
+
+[STEP 7] Computing population-consistent evaluation metrics across models and SNR levels...
+  Saved 3-way metrics comparison to D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\results\tables\complete_3way_metrics_comparison.csv
+
+==========================================================================================
+THREE-WAY MODEL COMPARISON TABLE (30,000 INDEPENDENT OBSERVATIONS)
+==========================================================================================
+        SNR     Model Parameter       MSE     RMSE      MAE      Bias  Lin_CCC
+         10     DNN-G       CBF 17.155589 4.141931 3.244397  0.850198 0.989424
+         10 H-DELM V1       CBF 16.513097 4.063631 3.171044  0.525752 0.989835
+         10 H-DELM V2       CBF 16.568828 4.070483 3.180893  0.520081 0.989808
+         10     DNN-G       ATT  0.125151 0.353767 0.231099  0.026608 0.865486
+         10 H-DELM V1       ATT  0.125450 0.354189 0.230986  0.023712 0.864837
+         10 H-DELM V2       ATT  0.125732 0.354587 0.232223  0.022872 0.864473
+         15     DNN-G       CBF 10.288727 3.207605 2.424857  0.271243 0.993877
+         15 H-DELM V1       CBF 10.126359 3.182194 2.395599 -0.019729 0.993982
+         15 H-DELM V2       CBF 10.108052 3.179316 2.395747 -0.016593 0.993998
+         15     DNN-G       ATT  0.093700 0.306104 0.202613 -0.003425 0.898631
+         15 H-DELM V1       ATT  0.093250 0.305369 0.202046 -0.005846 0.898946
+         15 H-DELM V2       ATT  0.093365 0.305558 0.202871 -0.007428 0.898745
+         20     DNN-G       CBF  8.728568 2.954415 2.150076  0.034715 0.994743
+         20 H-DELM V1       CBF  8.697042 2.949075 2.147344 -0.246441 0.994768
+         20 H-DELM V2       CBF  8.722282 2.953351 2.154661 -0.239189 0.994757
+         20     DNN-G       ATT  0.086672 0.294401 0.192854 -0.008303 0.908995
+         20 H-DELM V1       ATT  0.086427 0.293984 0.191752 -0.010459 0.909122
+         20 H-DELM V2       ATT  0.087204 0.295303 0.193391 -0.012243 0.908166
+All (10-20)     DNN-G       CBF 12.057628 3.472410 2.606443  0.385385 0.992713
+All (10-20) H-DELM V1       CBF 11.778833 3.432030 2.571329  0.086527 0.992891
+All (10-20) H-DELM V2       CBF 11.799721 3.435072 2.577100  0.088100 0.992884
+All (10-20)     DNN-G       ATT  0.101841 0.319125 0.208856  0.004960 0.891158
+All (10-20) H-DELM V1       ATT  0.101709 0.318918 0.208261  0.002469 0.891098
+All (10-20) H-DELM V2       ATT  0.102100 0.319531 0.209495  0.001067 0.890580
+  Saved percentage improvements summary to D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\results\tables\percentage_improvement_summary_v2.csv
+
+==========================================================================================
+PERCENTAGE IMPROVEMENTS RELATIVE TO DNN-G AND V1 COMPARISON
+==========================================================================================
+ SNR Parameter  V1_Gain_RMSE_%  V2_Gain_RMSE_%  V2_vs_V1_RMSE_%  V1_Gain_MAE_%  V2_Gain_MAE_%  V2_vs_V1_MAE_%
+  10       CBF           1.890           1.725           -0.169          2.261          1.957          -0.311
+  10       ATT          -0.119          -0.232           -0.112          0.049         -0.486          -0.535
+  15       CBF           0.792           0.882            0.090          1.207          1.200          -0.006
+  15       ATT           0.240           0.178           -0.062          0.280         -0.127          -0.408
+  20       CBF           0.181           0.036           -0.145          0.127         -0.213          -0.341
+  20       ATT           0.141          -0.306           -0.448          0.572         -0.278          -0.855
+
+[STEP 8] Conducting paired bootstrap CIs, paired permutation tests (B=10,000), Wilcoxon tests, and Holm-Bonferroni adjustment...
+  Saved statistical testing results to D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\results\tables\statistical_hypothesis_testing_v2.csv
+
+===============================================================================================
+STATISTICAL SIGNIFICANCE SUMMARY (PAIRED PERMUTATION & BOOTSTRAP WITH HOLM-BONFERRONI)
+===============================================================================================
+ SNR Parameter             Comparison  orig_delta_rmse  ci_rmse_lower  ci_rmse_upper  p_perm_sq  p_perm_sq_holm  orig_delta_mae  ci_mae_lower  ci_mae_upper  p_perm_abs  p_perm_abs_holm  p_perm_abs_holm_sig
+  10       CBF     H-DELM V2 vs DNN-G          0.07145        0.05797        0.08497    0.00010         0.00060         0.06350       0.05202       0.07521     0.00010          0.00060                 True
+  10       ATT     H-DELM V2 vs DNN-G         -0.00082       -0.00177        0.00009    0.07319         0.21958        -0.00112      -0.00183      -0.00050     0.00090          0.00360                 True
+  15       CBF     H-DELM V2 vs DNN-G          0.02829        0.01682        0.03949    0.00010         0.00060         0.02911       0.01965       0.03872     0.00010          0.00060                 True
+  15       ATT     H-DELM V2 vs DNN-G          0.00055       -0.00034        0.00147    0.25387         0.50775        -0.00026      -0.00082       0.00027     0.35516          0.67133                False
+  20       CBF     H-DELM V2 vs DNN-G          0.00106       -0.01057        0.01190    0.85711         0.85711        -0.00458      -0.01303       0.00426     0.33567          0.67133                False
+  20       ATT     H-DELM V2 vs DNN-G         -0.00090       -0.00171       -0.00008    0.03230         0.12919        -0.00054      -0.00101      -0.00006     0.02840          0.08519                False
+  10       CBF H-DELM V2 vs H-DELM V1         -0.00685       -0.01700        0.00199    0.16058         0.80292        -0.00985      -0.01790      -0.00242     0.01200          0.02490                 True
+  10       ATT H-DELM V2 vs H-DELM V1         -0.00040       -0.00121        0.00038    0.33407         1.00000        -0.00124      -0.00190      -0.00068     0.00020          0.00100                 True
+  15       CBF H-DELM V2 vs H-DELM V1          0.00288       -0.00496        0.01046    0.48785         1.00000        -0.00015      -0.00630       0.00557     0.95910          0.95910                False
+  15       ATT H-DELM V2 vs H-DELM V1         -0.00019       -0.00102        0.00062    0.65973         1.00000        -0.00083      -0.00131      -0.00032     0.00130          0.00520                 True
+  20       CBF H-DELM V2 vs H-DELM V1         -0.00428       -0.01200        0.00376    0.29117         1.00000        -0.00732      -0.01272      -0.00219     0.00830          0.02490                 True
+  20       ATT H-DELM V2 vs H-DELM V1         -0.00132       -0.00207       -0.00053    0.00150         0.00900        -0.00164      -0.00207      -0.00119     0.00010          0.00060                 True
+
+[STEP 9] Extracting diagnostic distributions and plotting 8 publication figures...
+  Computing sample DNN training residuals for diagnostics...
+  All diagnostic figures successfully rendered in: D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\figures
+
+[STEP 10] Checking numerical integrity and physiological bounds...
+  CBF DNN-G      : NaNs=0, Infs=0, Min=1.399, Max=99.453 | Bounds (0.0, 100.0) respected: True
+  CBF H-DELM V1  : NaNs=0, Infs=0, Min=0.958, Max=100.000 | Bounds (0.0, 100.0) respected: True
+  CBF H-DELM V2  : NaNs=0, Infs=0, Min=0.068, Max=100.000 | Bounds (0.0, 100.0) respected: True
+  ATT DNN-G      : NaNs=0, Infs=0, Min=0.978, Max=2.984 | Bounds (0.5, 3.0) respected: True
+  ATT H-DELM V1  : NaNs=0, Infs=0, Min=0.941, Max=3.000 | Bounds (0.5, 3.0) respected: True
+  ATT H-DELM V2  : NaNs=0, Infs=0, Min=0.708, Max=3.000 | Bounds (0.5, 3.0) respected: True
+
+=====================================================================================
+V2 REPRODUCTION EXPERIMENT COMPLETED IN 60.46s (1.01 min)
+Results Directory : D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\results
+Figures Directory : D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\figures
+Models Directory  : D:\dnn vs dnn elm\experiments\paper_reproduction_snr10_15_20_v2\models
+=====================================================================================
