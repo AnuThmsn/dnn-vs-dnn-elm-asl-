@@ -1,0 +1,18 @@
+Setting,Value,Evidence/qualification
+PLDs (s),"[1.525, 2.025, 2.525, 3.025]",Source simulator
+CBF range,"[0, 100] ml/100g/min",Uniform sampling
+ATT range,"[0.5, 3.0] s",Uniform sampling
+Signal model,Buxton general kinetic model,Repository implementation
+Noise,Dual-channel quadrature Rician magnitude,sigma = SIG_REF_SC / SNR
+DNN training observations,"1,000,000","10,000 pairs × 100 SNR levels; generated in-memory"
+DNN validation observations,"100,000","1,000 pairs × 100 SNR levels"
+ELM calibration observations,"100,000","80,000 fit + 20,000 validation"
+Independent test observations,"30,000","10,000 at each SNR 10, 15, 20"
+Training seed,42,V1 DNN-G generator
+Validation seed,99,V1 DNN-G generator
+Calibration seed,31415,Stored in calibration dataset
+Test seed,20261101,Fresh final test cohort
+ELM seed,42,Fixed random hidden weights/biases
+Input normalization,Mean/std fitted on DNN training cohort,Same values applied at inference
+Provenance qualification,Training cohort generated in-memory,Exact train arrays/digest not persisted
+Ridge sweep qualification,Sweep favored λ=1.0; final artifact λ=0.01,Final saved model evaluated as-is

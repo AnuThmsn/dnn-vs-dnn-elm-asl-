@@ -1,0 +1,13 @@
+model,parameter,kind,input_features,hidden_neurons,activation,ridge_lambda,seed,calibration_train_n,artifact
+dnn-representation-residual,CBF,ELM residual,dnn_representation,512,tanh,0.01,42,80000,models\dnn-representation-residual_cbf.npz
+dnn-representation-residual,ATT,ELM residual,dnn_representation,512,tanh,0.01,42,80000,models\dnn-representation-residual_att.npz
+physics-features-residual,CBF,ELM residual,physics_features,512,tanh,0.01,42,80000,models\physics-features-residual_cbf.npz
+physics-features-residual,ATT,ELM residual,physics_features,512,tanh,0.01,42,80000,models\physics-features-residual_att.npz
+combined-features-residual-seed-42,CBF,ELM residual,combined_features,512,tanh,0.01,42,80000,models\combined-features-residual-seed-42_cbf.npz
+combined-features-residual-seed-42,ATT,ELM residual,combined_features,512,tanh,0.01,42,80000,models\combined-features-residual-seed-42_att.npz
+combined-features-direct,CBF,ELM direct output,combined_features,512,tanh,0.01,42,80000,models\combined-features-direct_cbf.npz
+combined-features-direct,ATT,ELM direct output,combined_features,512,tanh,0.01,42,80000,models\combined-features-direct_att.npz
+combined-features-residual-seed-31415,CBF,ELM residual,target-specific DNN representation and signal physics features,512,tanh,0.01,31415,80000,models\combined-features-residual-seed-31415_cbf.npz
+combined-features-residual-seed-31415,ATT,ELM residual,target-specific DNN representation and signal physics features,512,tanh,0.01,31415,80000,models\combined-features-residual-seed-31415_att.npz
+combined-features-residual-seed-2026,CBF,ELM residual,target-specific DNN representation and signal physics features,512,tanh,0.01,2026,80000,models\combined-features-residual-seed-2026_cbf.npz
+combined-features-residual-seed-2026,ATT,ELM residual,target-specific DNN representation and signal physics features,512,tanh,0.01,2026,80000,models\combined-features-residual-seed-2026_att.npz

@@ -1,0 +1,71 @@
+{
+  "run_utc": "2026-11-01T11:08:19Z",
+  "calibration_split_seed": 20261102,
+  "elm_seed": 42,
+  "mlp_seeds": [
+    11,
+    42,
+    31415
+  ],
+  "elm_seeds": [
+    42,
+    31415,
+    2026
+  ],
+  "calibration_total": 100000,
+  "calibration_train_n": 80000,
+  "calibration_validation_n": 20000,
+  "test_total": 30000,
+  "test_counts_by_snr": {
+    "10": 10000,
+    "15": 10000,
+    "20": 10000
+  },
+  "test_seed": 20261101,
+  "test_finite_signals_and_labels": true,
+  "exact_test_parameter_pair_overlap": {
+    "dnn_training_parameter_pairs": 0,
+    "dnn_validation_parameter_pairs": 0,
+    "residual_calibration_parameter_pairs": 0
+  },
+  "test_was_previously_used_in_completed_hdelm_report": true,
+  "test_used_for_new_model_fit_or_selection": false,
+  "plds_seconds": [
+    1.525,
+    2.025,
+    2.525,
+    3.025
+  ],
+  "parameter_bounds": {
+    "CBF": [
+      0.0,
+      100.0
+    ],
+    "ATT": [
+      0.5,
+      3.0
+    ]
+  },
+  "max_test_dnn_prediction_difference_from_saved_archive": 0.0,
+  "software": {
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "torch": "2.5.1+cu121",
+    "device": "cuda"
+  },
+  "input_sha256": {
+    "submited h-delm\\scripts\\source_dnn_g.py": "0da8d3441b7b6e831bb31be161adc50a3368aafa74b32509392f66edaa7fa81e",
+    "submited h-delm\\scripts\\source_physics.py": "931ab58b958c8466761157beb2e273f29e6d66cefc9f16690e7193815777803c",
+    "submited h-delm\\scripts\\source_residual_hdelm_v2.py": "788d0d06775ea33439c976650daf74d1ef3a3488edf4ebafca29ae4e897cb5ee",
+    "submited h-delm\\models\\model_metadata\\input_normalization_stats.npz": "b2cf522979c574a19a4d6949702fe931f99c2df8be43225e37994d9d09492426",
+    "submited h-delm\\models\\dnn_checkpoint\\cbf_dnn_g_best.pth": "519b79441033dcdff269e7f278004a32fd6f0ba9da2e4bb5374191a8e376bfdb",
+    "submited h-delm\\models\\dnn_checkpoint\\att_dnn_g_best.pth": "41fe41a456345735506d8312c25fe98835dc4a28e9d4b2a9499d86e4a8b688eb",
+    "submited h-delm\\models\\hdelm_parameters\\cbf_hdelm_v2_artifact.npz": "4cd549d0b435ddf0d13b2e66d367eaaa01d07297f412259d3b150c1ccfe98e4c",
+    "submited h-delm\\models\\hdelm_parameters\\att_hdelm_v2_artifact.npz": "e62c0de16a722c68703217117b0226232c0a85f5afca95c1645cf3e4315bced5",
+    "submited h-delm\\datasets\\residual_calibration_100k.npz": "052c01b831d2840681bbe5184279040d167e876c388649b2a97b6ae5d0f1865d",
+    "experiments\\FINAL_VERIFICATION_SNR10_15_20\\FINAL_PREDICTIONS.npz": "948fae9112ed4574b57a5cf7c6aa653c5316e37437131efa6c71e8ca8c2e3ea7",
+    "experiments\\HYBRID_ARCHITECTURE_RESEARCH\\scripts\\run_core_comparisons.py": "ce234da9100509cbc138072ee0a51c81a8f3846552b5b0e156025459bb035f02"
+  },
+  "prediction_archive_sha256": "8c3656fcb671fc69c9a194551bc54173e592cb45042f3a02fdc84ffb939d7d9d"
+}

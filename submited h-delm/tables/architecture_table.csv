@@ -1,0 +1,14 @@
+Component,Verified implementation,Notes
+DNN input,4 raw ASL signal samples at the configured PLDs,Shared input to each target model
+DNN hidden stack,4 fully connected layers × 64 units,Separate frozen CBF and ATT networks
+DNN activation,ELU,Every hidden layer
+DNN initialization,Kaiming normal weights; zero biases,As implemented in DNN_G_Net
+DNN output,Linear logit → sigmoid → physical range,"CBF [0,100]; ATT [0.5,3.0]"
+DNN learned representation,64-dimensional penultimate activation,Used by target-specific ELM
+Additional ELM features,15 signal-derived features,"Four samples, slopes, ratios, moments, extrema, AUC"
+ELM input dimension,79,64 DNN + 15 signal features
+ELM hidden layer,512 fixed random neurons; tanh,Uniform W/b initialization; seed 42
+ELM output,Ridge regression on residual,Saved artifacts use λ=0.01
+Residual target,y_true − y_DNN,Fit on independent calibration set
+Final output,clip(y_DNN + predicted residual),Clipped to physiological target range
+Reference match,Not verifiable,Reference H-DELM paper unavailable in workspace

@@ -1,0 +1,11 @@
+Final independent verification started: 2026-11-01T10:03:21.921422+00:00
+Command: python experiments\FINAL_VERIFICATION_SNR10_15_20\run_final_verification.py
+Test seed: 20261101; samples per SNR: 10000
+Attempt 1: cohort generation, artifact loading, inference, and metrics completed; plot creation failed because an overall row was included in a chart expecting three SNR rows.
+Correction: excluded the overall row from the per-SNR chart; no data, model, or hyperparameter changes.
+Completed: 2026-11-01T10:03:28.143029+00:00
+Status: SUCCESS; generated fresh 30k cohort, verified labels and signal bounds, loaded frozen DNN/ELM artifacts, ran paired inference, saved CSV/NPZ/plots and Holm-adjusted tests.
+
+Packaged reproduction succeeded at 2026-11-01T10:38:58.476080+00:00.
+Commands: evaluate_models.py; generate_tables.py; generate_figures.py
+All commands completed with exit code 0.

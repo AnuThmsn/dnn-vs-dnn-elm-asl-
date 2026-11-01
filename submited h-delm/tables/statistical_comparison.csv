@@ -1,0 +1,7 @@
+SNR,Parameter,Paired RMSE improvement (DNN−H-DELM),Bootstrap 95% CI lower,Bootstrap 95% CI upper,Bootstrap replicates,Bootstrap seed,Test,Raw p-value,Holm-adjusted p-value,Significant at 0.05
+10,CBF,0.07350096452793764,0.06080514475507466,0.08611021915138428,5000,20261102,Paired Wilcoxon signed-rank on per-observation squared errors,5.498197205234759e-37,3.298918323140856e-36,True
+10,ATT,-0.0003897552356921241,-0.0012731281992352586,0.0005425514639948255,5000,20261102,Paired Wilcoxon signed-rank on per-observation squared errors,0.6265954839470556,1.0,False
+15,CBF,0.025792612019733152,0.014536529669043763,0.03734028527302952,5000,20261102,Paired Wilcoxon signed-rank on per-observation squared errors,1.071968785873726e-06,5.35984392936863e-06,True
+15,ATT,-0.0002911763678032919,-0.0012918111724412595,0.0006517217449809972,5000,20261102,Paired Wilcoxon signed-rank on per-observation squared errors,0.3089271263779694,1.0,False
+20,CBF,0.008261007010327948,-0.0030719993149590395,0.019521886433772447,5000,20261102,Paired Wilcoxon signed-rank on per-observation squared errors,0.8905229298661894,1.0,False
+20,ATT,-8.793953136848609e-05,-0.0008905915205817405,0.000725653013698231,5000,20261102,Paired Wilcoxon signed-rank on per-observation squared errors,0.6331336535246805,1.0,False

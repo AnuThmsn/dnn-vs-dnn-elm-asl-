@@ -1,0 +1,32 @@
+{
+  "source": "Existing V1 DNN-G pipeline generator, independently rerun for summary statistics",
+  "training_observations": 1000000,
+  "training_inputs_shape": [
+    1000000,
+    4
+  ],
+  "training_targets_shape": [
+    1000000,
+    2
+  ],
+  "validation_observations": 100000,
+  "calibration_observations": 100000,
+  "test_observations": 30000,
+  "training_arrays_persisted": false,
+  "training_provenance_note": "V1 generator constructs training arrays in memory; no dataset digest was saved with the model checkpoints.",
+  "training_seed": 42,
+  "validation_seed": 99,
+  "calibration_seed": 31415,
+  "test_seed": 20261101,
+  "plds_seconds": [
+    1.525,
+    2.025,
+    2.525,
+    3.025
+  ],
+  "snr_test_counts": {
+    "10": 10000,
+    "15": 10000,
+    "20": 10000
+  }
+}

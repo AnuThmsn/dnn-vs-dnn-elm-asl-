@@ -1,0 +1,18 @@
+Command: python experiments\HYBRID_ARCHITECTURE_RESEARCH\scripts\run_core_comparisons.py
+Started UTC: 2026-11-01T11:04:26Z
+Calibration rows: 100000; train=80000; validation=20000
+Locked benchmark rows: 30000; seed=20261101; counts=10,000/SNR
+Test benchmark was previously used in the completed H-DELM report; treated as fixed, not unseen.
+Reproduced DNN-G max absolute prediction difference: 0
+Fitted dnn-representation-residual from calibration train split only.
+Fitted physics-features-residual from calibration train split only.
+Fitted combined-features-residual-seed-42 from calibration train split only.
+Fitted combined-features-direct from calibration train split only.
+Fitted combined residual ELM with random projection seed 31415.
+Fitted combined residual ELM with random projection seed 2026.
+Calibration validation selected parameter alphas: [1.0, 1.0].
+Residual MLP seed 11 early-stopped at epoch 31; best validation normalized MSE=0.008670209.
+Residual MLP seed 42 early-stopped at epoch 33; best validation normalized MSE=0.0086699286.
+Residual MLP seed 31415 early-stopped at epoch 37; best validation normalized MSE=0.0086698243.
+The initial core pass exposed an unnormalized MLP test-feature inference bug; the code was corrected and this successful run was regenerated end-to-end.
+Core comparisons completed successfully.

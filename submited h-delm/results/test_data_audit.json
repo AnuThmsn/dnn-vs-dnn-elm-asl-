@@ -1,0 +1,62 @@
+{
+  "generated_utc": "2026-11-01T10:37:43.391722+00:00",
+  "seed": 20261101,
+  "training_seed": 42,
+  "validation_seed": 99,
+  "calibration_seed": 31415,
+  "samples_per_snr": {
+    "10": 10000,
+    "15": 10000,
+    "20": 10000
+  },
+  "total_samples": 30000,
+  "input_shape": [
+    30000,
+    4
+  ],
+  "target_shape": [
+    30000,
+    2
+  ],
+  "plds_seconds": [
+    1.525,
+    2.025,
+    2.525,
+    3.025
+  ],
+  "cbf_range": [
+    0.0,
+    100.0
+  ],
+  "att_range_seconds": [
+    0.5,
+    3.0
+  ],
+  "simulator": "source_physics.compute_physical_signals and add_rician_noise",
+  "noise_model": "dual-channel quadrature Rician magnitude noise",
+  "software_versions": {
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "pytorch": "2.5.1+cu121"
+  },
+  "finite_signals_and_labels": true,
+  "exact_test_label_pair_overlap": {
+    "train_exact_parameter_pair_intersections": 0,
+    "validation_exact_parameter_pair_intersections": 0,
+    "calibration_exact_parameter_pair_intersections": 0
+  },
+  "models": [
+    "frozen DNN-G checkpoints",
+    "saved H-DELM V2 ELM artifacts"
+  ],
+  "test_used_for_fit_or_tuning": false,
+  "artifact_sha256": {
+    "models\\dnn_checkpoint\\cbf_dnn_g_best.pth": "519b79441033dcdff269e7f278004a32fd6f0ba9da2e4bb5374191a8e376bfdb",
+    "models\\dnn_checkpoint\\att_dnn_g_best.pth": "41fe41a456345735506d8312c25fe98835dc4a28e9d4b2a9499d86e4a8b688eb",
+    "models\\model_metadata\\input_normalization_stats.npz": "b2cf522979c574a19a4d6949702fe931f99c2df8be43225e37994d9d09492426",
+    "models\\hdelm_parameters\\cbf_hdelm_v2_artifact.npz": "4cd549d0b435ddf0d13b2e66d367eaaa01d07297f412259d3b150c1ccfe98e4c",
+    "models\\hdelm_parameters\\att_hdelm_v2_artifact.npz": "e62c0de16a722c68703217117b0226232c0a85f5afca95c1645cf3e4315bced5",
+    "datasets\\residual_calibration_100k.npz": "052c01b831d2840681bbe5184279040d167e876c388649b2a97b6ae5d0f1865d"
+  },
+  "prediction_file_sha256": "948fae9112ed4574b57a5cf7c6aa653c5316e37437131efa6c71e8ca8c2e3ea7"
+}
